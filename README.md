@@ -1,27 +1,33 @@
-# Dawn Lotus Academy
+# Harmony Gate (和門 Hé Mén)
 
-A modern Daoist education platform integrating traditional practices with contemporary yoga and qigong training.
+A Daoist yoga and spiritual practice platform built with React and deployed on GitHub Pages.
 
-## 🌅 Overview
+## Live Site
+Visit the site at [https://harmonygate.github.io/](https://harmonygate.github.io/)
 
-Dawn Lotus Academy offers a structured path to internal development through:
-- Daoist Yoga Practice
-- Qigong Training
-- Traditional Theory
-- Energy Cultivation
-- Community Learning
+## Project Overview
 
-## 🚀 Project Setup
+Harmony Gate is a comprehensive platform for Daoist yoga practice, meditation, and spiritual development. Our approach integrates traditional Daoist principles with modern wellness practices, creating a balanced path for personal transformation.
+
+### Core Offerings
+- Daoist Yoga Classes
+- Meditation Practices
+- Qi Gong Training
+- Traditional Theory Studies
+- Energy Work Workshops
+- Spiritual Development
+
+## Project Setup
 
 ### Prerequisites
-- Node.js 16+ and npm 7+
+- Node.js 14+ and npm 6+
 - Git
 
 ### Installation
 1. Clone the repository:
 ```bash
-git clone https://github.com/[your-username]/dawnlotus.git
-cd dawnlotus
+git clone https://github.com/harmonygate/harmonygate.git
+cd harmonygate
 ```
 
 2. Install dependencies:
@@ -34,90 +40,71 @@ npm install
 npm start
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
-dawnlotus/
-├── public/
-│   ├── favicon/               # Favicon assets
-│   └── images/               # Static images
-├── src/
-│   ├── components/           # React components
-│   │   ├── curriculum/       # Educational content components
-│   │   ├── practice/         # Practice session components
-│   │   └── theory/          # Theoretical content components
-│   ├── context/             # React context providers
-│   ├── hooks/               # Custom React hooks
-│   ├── pages/               # Page components
-│   ├── styles/              # CSS and style files
-│   └── utils/               # Utility functions
-└── docs/                    # Documentation
-    ├── curriculum/          # Curriculum guides
-    └── practices/           # Practice descriptions
-
+harmonygate/                      # Repository root
+├── public/                       # Public assets
+│   ├── styles/                   # CSS files for production
+│   └── favicon/                  # Favicon files
+└── src/                          # Source code
+    ├── components/               # React components
+    │   ├── practice/            # Practice-related components
+    │   ├── theory/             # Theory-related components
+    │   └── meditation/         # Meditation components
+    ├── context/                 # React context
+    ├── hooks/                   # Custom React hooks
+    └── utils/                   # Utility functions
 ```
 
-## 🎯 Key Features
+## Key Features
+- **Integrated Learning System**: Combines theory and practice
+- **Progressive Development Path**: Structured advancement through practices
+- **Interactive Practice Tools**: Guided sessions and progress tracking
+- **Resource Library**: Comprehensive Daoist teachings
+- **Community Features**: Student forums and study groups
+- **Responsive Design**: Optimized for all devices
 
-### Educational Platform
-- Structured learning paths
-- Video tutorials
-- Interactive practices
-- Progress tracking
-- Community features
-
-### Technology Stack
-- React 18
-- Tailwind CSS
-- Lucide Icons
-- ShadcnUI Components
-
-### Design Philosophy
-- Clean, minimal interface
-- Focus on content
-- Smooth animations
-- Responsive design
-
-## 🧪 Testing
-
-```bash
-npm test
-```
-
-## 📦 Building for Production
+## Building for Production
 
 ```bash
 npm run build
 ```
 
-## 🚀 Deployment
+This creates an optimized build in the `build` directory.
 
-The site is configured for deployment on various platforms:
+## Development Standards
 
-### GitHub Pages
-```bash
-npm run deploy
-```
+This project follows these standards:
+- ESLint for JavaScript linting
+- Prettier for code formatting
+- React best practices and hooks
+- Semantic HTML
+- Accessible design (WCAG 2.1 AA compliant)
 
-### Custom Domain
-1. Update homepage in package.json
-2. Add CNAME file to public/
-3. Configure DNS settings
+## Available Scripts
 
-## 🤝 Contributing
+- `npm start` - Runs the app in development mode
+- `npm test` - Launches the test runner
+- `npm run build` - Builds the app for production
+- `npm run deploy` - Deploys to GitHub Pages
+- `npm run lint` - Lints JavaScript files
+- `npm run format` - Formats code with Prettier
+
+## Contributing
 
 1. Fork the repository
-2. Create feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📜 License
+## License
 
-This project is licensed under the MIT License - see LICENSE file for details.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
-- React community
-- Tailwind CSS team
-- Open source contributors
+- React Router for routing
+- Create React App for the initial setup
+- Traditional Daoist teachings and practices that inspire our work
