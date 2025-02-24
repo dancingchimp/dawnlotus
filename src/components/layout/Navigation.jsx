@@ -1,4 +1,4 @@
-// src/components/layout/Navigation.jsx with both Nei Gong and Tai Chi buttons
+// src/components/layout/Navigation.jsx
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 

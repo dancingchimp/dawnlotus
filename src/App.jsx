@@ -9,6 +9,7 @@ import PracticeDetail from './pages/PracticeDetail';
 import About from './pages/About';
 import Theory from './pages/Theory';
 import NeiGongStudy from './components/education/NeiGongStudy';
+import TaiChiStudy from './components/education/TaiChiStudy';
 
 // Placeholder page for Meditation
 const Meditation = () => (
@@ -107,6 +108,7 @@ function App() {
             <Route path="/theory" element={<Theory />} />
             <Route path="/meditation" element={<Meditation />} />
             <Route path="/neigong" element={<NeiGongStudy />} />
+            <Route path="/taichi" element={<TaiChiStudy />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
