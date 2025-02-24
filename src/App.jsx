@@ -1,4 +1,4 @@
-// src/App.jsx
+// src/App.jsx with Taijiquan route added
 import React, { useEffect } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import Hero from './components/Hero';
@@ -8,6 +8,8 @@ import Practice from './pages/Practice';
 import PracticeDetail from './pages/PracticeDetail';
 import About from './pages/About';
 import Theory from './pages/Theory';
+import NeiGongStudy from './components/education/NeiGongStudy';
+import TaiChiStudy from './components/education/TaiChiStudy';
 
 // Placeholder page for Meditation
 const Meditation = () => (
@@ -105,6 +107,8 @@ function App() {
             <Route path="/practice/:practiceId" element={<PracticeDetail />} />
             <Route path="/theory" element={<Theory />} />
             <Route path="/meditation" element={<Meditation />} />
+            <Route path="/neigong" element={<NeiGongStudy />} />
+            <Route path="/taichi" element={<TaiChiStudy />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

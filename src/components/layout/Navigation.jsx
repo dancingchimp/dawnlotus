@@ -1,4 +1,4 @@
-// src/components/layout/Navigation.jsx
+// src/components/layout/Navigation.jsx with both Nei Gong and Tai Chi buttons
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -38,25 +38,45 @@ function Navigation() {
             <span className="text-lg font-serif text-stone-100">Harmony Gate</span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map(({ path, label, english }) => (
-              <Link
-                key={path}
-                to={path}
-                className={`group flex flex-col items-center transition-colors duration-300 ${
-                  location.pathname === path ? 'text-gold-500' : 'text-stone-300 hover:text-gold-400'
-                }`}
+          <div className="flex items-center">
+            {/* Study Buttons - Visible on all screen sizes */}
+            <div className="flex space-x-2 mr-6">
+              <Link 
+                to="/neigong"
+                className="bg-gold-500 hover:bg-gold-600 text-stone-900 px-3 py-2 
+                        rounded-lg text-sm font-medium transition-all duration-300"
               >
-                <span className="text-sm font-chinese">{label}</span>
-                <span className="text-xs tracking-wide">{english}</span>
-                <span 
-                  className={`h-0.5 w-0 bg-gold-500 transition-all duration-300 ${
-                    location.pathname === path ? 'w-full' : 'group-hover:w-full'
-                  }`} 
-                />
+                <span className="hidden sm:inline">Study</span> Nei Gong
               </Link>
-            ))}
+              <Link 
+                to="/taichi"
+                className="bg-jade-500 hover:bg-jade-600 text-stone-100 px-3 py-2 
+                        rounded-lg text-sm font-medium transition-all duration-300"
+              >
+                <span className="hidden sm:inline">Study</span> Tai Chi
+              </Link>
+            </div>
+
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-8">
+              {navItems.map(({ path, label, english }) => (
+                <Link
+                  key={path}
+                  to={path}
+                  className={`group flex flex-col items-center transition-colors duration-300 ${
+                    location.pathname === path ? 'text-gold-500' : 'text-stone-300 hover:text-gold-400'
+                  }`}
+                >
+                  <span className="text-sm font-chinese">{label}</span>
+                  <span className="text-xs tracking-wide">{english}</span>
+                  <span 
+                    className={`h-0.5 w-0 bg-gold-500 transition-all duration-300 ${
+                      location.pathname === path ? 'w-full' : 'group-hover:w-full'
+                    }`} 
+                  />
+                </Link>
+              ))}
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -93,6 +113,26 @@ function Navigation() {
         }`}
       >
         <div className="px-2 pt-2 pb-3 space-y-1 bg-stone-800/90 backdrop-blur-md">
+          {/* Study buttons included in mobile menu */}
+          <div className="flex gap-2 mb-2">
+            <Link
+              to="/neigong"
+              className="flex-1 block px-3 py-2 rounded-md text-base bg-gold-500/20 text-gold-500 text-center"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              <span className="font-chinese">內功</span>
+              <span className="ml-1 text-sm">(Nei Gong)</span>
+            </Link>
+            <Link
+              to="/taichi"
+              className="flex-1 block px-3 py-2 rounded-md text-base bg-jade-500/20 text-jade-400 text-center"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              <span className="font-chinese">太極</span>
+              <span className="ml-1 text-sm">(Tai Chi)</span>
+            </Link>
+          </div>
+          
           {navItems.map(({ path, label, english }) => (
             <Link
               key={path}
