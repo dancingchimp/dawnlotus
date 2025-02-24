@@ -11,7 +11,7 @@ const practiceSamples = [
     category: 'daoist-yoga',
     level: 'Beginner',
     duration: '20 min',
-    description: 'Essential postures that open the body's meridian system while building strength and flexibility.',
+    description: 'Essential postures that open the body\'s meridian system while building strength and flexibility.',
     longDescription: `This foundation sequence forms the basis of our Daoist Yoga practice. It integrates traditional yoga postures with principles of Qigong to create a practice that both opens the physical body and builds energy awareness.
 
     The sequence follows the natural flow of energy through the body's meridian system, beginning with postures that activate the lower body and gradually moving upward through the torso, arms, and head.
@@ -219,3 +219,130 @@ function PracticeDetail() {
                     <span className="text-jade-400 font-medium">Practice Note:</span> {practice.notes[0].note}
                   </p>
                 </div>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Practice Content */}
+        <div className="grid md:grid-cols-3 gap-8 mb-16">
+          {/* Left Column: Description */}
+          <div className="md:col-span-2">
+            <h2 className="text-2xl font-serif text-gold-500 mb-4">About This Practice</h2>
+            <div className="text-stone-300 space-y-4 mb-8">
+              {practice.longDescription.split('\n\n').map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
+            </div>
+
+            <h2 className="text-2xl font-serif text-gold-500 mb-4">Benefits</h2>
+            <ul className="text-stone-300 space-y-2 mb-8">
+              {practice.benefits.map((benefit, index) => (
+                <li key={index} className="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-jade-500 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  {benefit}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Right Column: Practice Info & Related */}
+          <div>
+            <div className="bg-stone-800/30 rounded-xl p-6 border border-jade-500/10 mb-8">
+              <h3 className="text-xl font-serif text-gold-500 mb-4">Practice Details</h3>
+              
+              <div className="space-y-4">
+                <div>
+                  <h4 className="text-stone-400 text-sm mb-1">Category</h4>
+                  <p className="text-stone-300">
+                    {practice.category === 'daoist-yoga' ? 'Daoist Yoga' : 
+                     practice.category === 'qigong' ? 'Qigong' : 
+                     practice.category === 'meditation' ? 'Meditation' : 'Theory'}
+                  </p>
+                </div>
+                
+                <div>
+                  <h4 className="text-stone-400 text-sm mb-1">Level</h4>
+                  <p className="text-stone-300">{practice.level}</p>
+                </div>
+                
+                <div>
+                  <h4 className="text-stone-400 text-sm mb-1">Duration</h4>
+                  <p className="text-stone-300">{practice.duration}</p>
+                </div>
+                
+                <div>
+                  <h4 className="text-stone-400 text-sm mb-1">Instructor</h4>
+                  <p className="text-stone-300">{practice.instructor}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Related Practices */}
+            {practice.relatedPractices && practice.relatedPractices.length > 0 && (
+              <div>
+                <h3 className="text-xl font-serif text-gold-500 mb-4">Related Practices</h3>
+                <div className="space-y-4">
+                  {practice.relatedPractices.map(relatedId => {
+                    const related = practiceSamples.find(p => p.id === relatedId);
+                    if (!related) return null;
+                    
+                    return (
+                      <Link 
+                        key={relatedId}
+                        to={`/practice/${relatedId}`}
+                        className="flex items-center gap-4 p-4 bg-stone-800/30 rounded-lg 
+                                border border-jade-500/10 hover:border-jade-500/30 
+                                transition-all duration-300"
+                      >
+                        <img 
+                          src="/api/placeholder/80/45" 
+                          alt={related.title} 
+                          className="w-20 h-12 object-cover rounded"
+                        />
+                        <div>
+                          <h4 className="text-gold-500">{related.title}</h4>
+                          <p className="text-stone-400 text-sm">{related.duration} • {related.level}</p>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Practice Navigation */}
+        <div className="border-t border-stone-800 pt-8 flex justify-between">
+          <div>
+            <button 
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="inline-flex items-center text-jade-500 hover:text-jade-400 transition-colors"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z" clipRule="evenodd" />
+              </svg>
+              Back to Top
+            </button>
+          </div>
+          <div>
+            <Link 
+              to="/practice"
+              className="inline-flex items-center text-stone-400 hover:text-jade-400 transition-colors"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd" />
+              </svg>
+              All Practices
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default PracticeDetail;
