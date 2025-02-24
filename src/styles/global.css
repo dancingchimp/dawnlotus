@@ -1,9 +1,7 @@
-// src/styles/globals.css
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+ 
 @layer base {
   :root {
     --background: 20 14% 4%;
@@ -27,7 +25,7 @@
     --ring: 142 67% 17%;
     --radius: 0.5rem;
   }
-
+ 
   .dark {
     --background: 20 14% 4%;
     --foreground: 0 0% 98%;
@@ -53,7 +51,7 @@
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-zinc-200;
   }
   body {
     @apply bg-background text-foreground;

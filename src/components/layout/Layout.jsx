@@ -1,5 +1,3 @@
-// src/components/layout/Layout.jsx
-
 import React, { useState, useEffect } from 'react';
 import Navigation from './Navigation';
 import Footer from './Footer';

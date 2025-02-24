@@ -1,5 +1,3 @@
-// src/components/sections/TeachingsSection.jsx
-
 import React from 'react';
 
 const teachings = [
@@ -20,24 +18,6 @@ const teachings = [
     pinyin: 'Dào',
     english: 'The Way',
     description: 'Following the natural path of harmony and spiritual development.'
-  },
-  {
-    chinese: '德',
-    pinyin: 'Dé',
-    english: 'Virtue',
-    description: 'Cultivating inner power through authentic practice and wisdom.'
-  },
-  {
-    chinese: '無為',
-    pinyin: 'Wú Wéi',
-    english: 'Non-Action',
-    description: 'Acting in alignment with the natural flow of the universe.'
-  },
-  {
-    chinese: '調息',
-    pinyin: 'Tiáo Xī',
-    english: 'Breath Harmony',
-    description: 'Mastering the breath as a bridge between body and spirit.'
   }
 ];
 
@@ -61,16 +41,10 @@ function TeachingCard({ teaching }) {
 
 function TeachingsSection() {
   return (
-    <div>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {teachings.map((teaching, index) => (
-          <TeachingCard key={index} teaching={teaching} />
-        ))}
-      </div>
-
-      {/* Decorative Background Elements */}
-      <div className="absolute top-0 left-1/4 w-64 h-64 bg-jade-500/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-gold-500/5 rounded-full blur-3xl" />
+    <div className="grid md:grid-cols-3 gap-6">
+      {teachings.map((teaching, index) => (
+        <TeachingCard key={index} teaching={teaching} />
+      ))}
     </div>
   );
 }

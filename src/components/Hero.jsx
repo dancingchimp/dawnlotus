@@ -1,5 +1,3 @@
-// src/components/Hero.jsx
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -8,7 +6,6 @@ function Hero() {
     <div className="min-h-screen relative flex items-center justify-center bg-stone-900">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Flowing energy lines */}
         <div className="absolute top-1/4 -left-48 w-96 h-96 bg-jade-500/10 rounded-full blur-3xl animate-flow" />
         <div className="absolute bottom-1/4 -right-48 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl animate-flow" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full 
@@ -58,31 +55,11 @@ function Hero() {
                 Learn More
               </Link>
             </div>
-
-            {/* Key Aspects */}
-            <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 gap-4 lg:gap-6">
-              <div className="bg-stone-800/30 rounded-lg p-3 flex items-center gap-2 group 
-                            hover:bg-stone-800/50 transition-all border border-jade-500/10 hover:border-jade-500/30">
-                <span className="text-gold-500 group-hover:scale-110 transition-transform">太極</span>
-                <span className="text-stone-300">Taiji Practice</span>
-              </div>
-              <div className="bg-stone-800/30 rounded-lg p-3 flex items-center gap-2 group 
-                            hover:bg-stone-800/50 transition-all border border-jade-500/10 hover:border-jade-500/30">
-                <span className="text-gold-500 group-hover:scale-110 transition-transform">氣功</span>
-                <span className="text-stone-300">Qigong</span>
-              </div>
-              <div className="bg-stone-800/30 rounded-lg p-3 flex items-center gap-2 group 
-                            hover:bg-stone-800/50 transition-all border border-jade-500/10 hover:border-jade-500/30">
-                <span className="text-gold-500 group-hover:scale-110 transition-transform">靜坐</span>
-                <span className="text-stone-300">Meditation</span>
-              </div>
-            </div>
           </div>
 
           {/* Right side - Decorative element */}
           <div className="hidden lg:flex items-center justify-center">
             <div className="relative w-96 h-96">
-              {/* Animated Taiji (Yin-Yang) symbol */}
               <div className="absolute inset-0 bg-gradient-to-br from-jade-500/20 to-transparent 
                             rounded-full blur-2xl transform -rotate-12 animate-pulse-slow" />
               <div className="absolute inset-10 bg-gradient-to-tr from-gold-500/10 to-transparent 
