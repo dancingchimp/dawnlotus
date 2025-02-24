@@ -1,37 +1,37 @@
-// src/App.jsx
-
 import React, { Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { AppProvider } from './context/AppContext';
 import Layout from './components/layout/Layout';
 import LoadingScreen from './components/common/LoadingScreen';
 import ErrorBoundary from './components/common/ErrorBoundary';
-import NotFound from './pages/NotFound';
 
-// Lazy load pages for better performance
+// Lazy load pages
 const Home = React.lazy(() => import('./pages/Home'));
 const Practice = React.lazy(() => import('./pages/Practice'));
 const Theory = React.lazy(() => import('./pages/Theory'));
 const Meditation = React.lazy(() => import('./pages/Meditation'));
 const About = React.lazy(() => import('./pages/About'));
+const NotFound = React.lazy(() => import('./pages/NotFound'));
 
 function App() {
   return (
     <AppProvider>
-      <Router basename="/harmonygate">
-        <Suspense fallback={<LoadingScreen />}>
-          <Layout>
-            <Routes>
-              <Route path="/" element={<Home />} errorElement={<ErrorBoundary />} />
-              <Route path="/practice" element={<Practice />} errorElement={<ErrorBoundary />} />
-              <Route path="/theory" element={<Theory />} errorElement={<ErrorBoundary />} />
-              <Route path="/meditation" element={<Meditation />} errorElement={<ErrorBoundary />} />
-              <Route path="/about" element={<About />} errorElement={<ErrorBoundary />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Layout>
-        </Suspense>
-      </Router>
+      <ErrorBoundary>
+        <Router>
+          <Suspense fallback={<LoadingScreen />}>
+            <Layout>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/practice" element={<Practice />} />
+                <Route path="/theory" element={<Theory />} />
+                <Route path="/meditation" element={<Meditation />} />
+                <Route path="/about" element={<About />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Layout>
+          </Suspense>
+        </Router>
+      </ErrorBoundary>
     </AppProvider>
   );
 }
