@@ -3,59 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0F4C3A" />
+    <meta name="description" content="Harmony Gate - A modern approach to Daoist practice and spiritual development" />
     
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/harmonygate/harmonygate.svg" />
+    <link rel="icon" type="image/svg+xml" href="/harmonygate.svg" />
     
-    <!-- Primary Meta Tags -->
-    <title>Harmony Gate | Modern Daoist Practice</title>
-    <meta name="title" content="Harmony Gate | Modern Daoist Practice" />
-    <meta name="description" content="Discover the ancient wisdom of Daoist yoga, where movement meets meditation, and practice transforms into enlightenment." />
-    <meta name="theme-color" content="#0F4C3A" />
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://dancingchimp.github.io/harmonygate/" />
-    <meta property="og:title" content="Harmony Gate | Modern Daoist Practice" />
-    <meta property="og:description" content="Discover the ancient wisdom of Daoist yoga, where movement meets meditation, and practice transforms into enlightenment." />
-    <meta property="og:image" content="/harmonygate/og-image.jpg" />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://dancingchimp.github.io/harmonygate/" />
-    <meta property="twitter:title" content="Harmony Gate | Modern Daoist Practice" />
-    <meta property="twitter:description" content="Discover the ancient wisdom of Daoist yoga, where movement meets meditation, and practice transforms into enlightenment." />
-    <meta property="twitter:image" content="/harmonygate/og-image.jpg" />
-
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-
-    <!-- GitHub Pages SPA Support -->
-    <script type="text/javascript">
-      (function(l) {
-        if (l.search[1] === '/' ) {
-          var decoded = l.search.slice(1).split('&').map(function(s) { 
-            return s.replace(/~and~/g, '&')
-          }).join('?');
-          window.history.replaceState(null, null,
-              l.pathname.slice(0, -1) + decoded + l.hash
-          );
-        }
-      }(window.location))
-    </script>
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Harmony Gate | Modern Daoist Practice" />
+    <meta property="og:description" content="A comprehensive platform for Daoist yoga, meditation, and spiritual development." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://dancingchimp.github.io/harmonygate/" />
+    
+    <title>Harmony Gate | Modern Daoist Practice</title>
   </head>
-  <body class="bg-stone-900 antialiased">
+  <body class="bg-stone-900">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-    
-    <!-- No-JS Fallback -->
-    <noscript>
-      <div style="text-align: center; padding: 2rem; color: #ffffff;">
-        <h1 style="font-family: 'Noto Serif', serif;">Harmony Gate</h1>
-        <p>Please enable JavaScript to experience this site.</p>
-      </div>
-    </noscript>
   </body>
 </html>

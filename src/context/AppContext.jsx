@@ -1,22 +1,12 @@
-// src/context/AppContext.jsx
-
 import React, { createContext, useContext, useState } from 'react';
 
-const AppContext = createContext({
-  isLoading: false,
-  setIsLoading: () => {},
-});
+const AppContext = createContext();
 
 export function AppProvider({ children }) {
   const [isLoading, setIsLoading] = useState(false);
 
-  const value = {
-    isLoading,
-    setIsLoading,
-  };
-
   return (
-    <AppContext.Provider value={value}>
+    <AppContext.Provider value={{ isLoading, setIsLoading }}>
       {children}
     </AppContext.Provider>
   );
@@ -24,7 +14,7 @@ export function AppProvider({ children }) {
 
 export function useApp() {
   const context = useContext(AppContext);
-  if (context === undefined) {
+  if (!context) {
     throw new Error('useApp must be used within an AppProvider');
   }
   return context;
