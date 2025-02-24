@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AppProvider } from './context/AppContext';
 import Layout from './components/layout/Layout';
 import LoadingScreen from './components/common/LoadingScreen';
@@ -17,7 +17,7 @@ function App() {
   return (
     <AppProvider>
       <ErrorBoundary>
-        <Router>
+        <Router basename="/harmonygate">
           <Suspense fallback={<LoadingScreen />}>
             <Layout>
               <Routes>
