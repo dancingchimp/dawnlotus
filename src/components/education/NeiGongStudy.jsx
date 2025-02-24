@@ -1,6 +1,5 @@
 // src/components/education/NeiGongStudy.jsx
 import React, { useState } from 'react';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Flame, Wind, Battery, Circle, Book, Compass, Zap } from 'lucide-react';
 
 const neiGongContent = {
@@ -120,16 +119,14 @@ function NeiGongStudy() {
 
     if (!section.sections) {
       return (
-        <Card className="bg-stone-800/30 border-jade-500/10">
-          <CardContent className="p-6">
-            <h3 className="text-2xl font-serif text-gold-500 mb-4">{section.title}</h3>
-            <div className="text-stone-300 space-y-4">
-              {section.content.split('\n\n').map((paragraph, index) => (
-                <p key={index} className="leading-relaxed">{paragraph}</p>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+        <div className="bg-stone-800/30 border border-jade-500/10 p-6 rounded-xl">
+          <h3 className="text-2xl font-serif text-gold-500 mb-4">{section.title}</h3>
+          <div className="text-stone-300 space-y-4">
+            {section.content.split('\n\n').map((paragraph, index) => (
+              <p key={index} className="leading-relaxed">{paragraph}</p>
+            ))}
+          </div>
+        </div>
       );
     }
 
@@ -139,13 +136,13 @@ function NeiGongStudy() {
         <p className="text-stone-300 mb-6">{section.description}</p>
         
         {section.sections && section.sections.map((subsection, index) => (
-          <Card 
+          <div 
             key={index}
-            className="bg-stone-800/30 border-jade-500/10 hover:border-jade-500/30 
-                     transition-all duration-300"
+            className="bg-stone-800/30 border border-jade-500/10 hover:border-jade-500/30 
+                     transition-all duration-300 rounded-xl overflow-hidden"
           >
-            <CardHeader 
-              className="cursor-pointer"
+            <div 
+              className="p-6 cursor-pointer"
               onClick={() => handleSubsectionClick(index)}
             >
               <div className="flex justify-between items-center">
@@ -154,7 +151,7 @@ function NeiGongStudy() {
                     <subsection.icon className="w-5 h-5 text-jade-500" />
                   </div>
                   <div>
-                    <CardTitle className="text-xl text-gold-500">{subsection.title}</CardTitle>
+                    <h4 className="text-xl font-serif text-gold-500">{subsection.title}</h4>
                     <p className="text-stone-400 font-chinese">{subsection.chinese}</p>
                     <p className="text-stone-300 text-sm mt-1">{subsection.description}</p>
                   </div>
@@ -165,18 +162,18 @@ function NeiGongStudy() {
                   }`} />
                 </div>
               </div>
-            </CardHeader>
+            </div>
             
             {activeSubsection === index && (
-              <CardContent>
+              <div className="px-6 pb-6">
                 <div className="pt-2 text-stone-300 space-y-4">
                   {subsection.content.split('\n\n').map((paragraph, i) => (
                     <p key={i} className="leading-relaxed">{paragraph}</p>
                   ))}
                 </div>
-              </CardContent>
+              </div>
             )}
-          </Card>
+          </div>
         ))}
       </div>
     );
@@ -220,27 +217,25 @@ function NeiGongStudy() {
               {Object.entries(neiGongContent).map(([key, section]) => {
                 const Icon = getIconForSection(key);
                 return (
-                  <Card
+                  <div
                     key={key}
-                    className={`cursor-pointer transition-all duration-300 ${
-                      activeSection === key 
+                    className={`cursor-pointer transition-all duration-300 p-4 rounded-xl border
+                      ${activeSection === key 
                         ? 'bg-stone-800/70 border-jade-500/50' 
-                        : 'bg-stone-800/30 hover:bg-stone-800/50'
-                    }`}
+                        : 'bg-stone-800/30 hover:bg-stone-800/50 border-jade-500/10'
+                      }`}
                     onClick={() => handleSectionClick(key)}
                   >
-                    <CardHeader>
-                      <div className="flex items-center gap-3">
-                        <div className="p-2 bg-jade-500/10 rounded-lg">
-                          <Icon className="w-5 h-5 text-jade-500" />
-                        </div>
-                        <div>
-                          <CardTitle className="text-gold-500 text-lg">{section.title}</CardTitle>
-                          <p className="text-stone-400 font-chinese text-sm">{section.chinese}</p>
-                        </div>
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 bg-jade-500/10 rounded-lg">
+                        <Icon className="w-5 h-5 text-jade-500" />
                       </div>
-                    </CardHeader>
-                  </Card>
+                      <div>
+                        <h3 className="text-gold-500 text-lg font-serif">{section.title}</h3>
+                        <p className="text-stone-400 font-chinese text-sm">{section.chinese}</p>
+                      </div>
+                    </div>
+                  </div>
                 );
               })}
             </div>
