@@ -1,104 +1,15 @@
 // src/App.jsx
-import React from 'react';
+import React, { useEffect } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import Hero from './components/Hero';
+import Navigation from './components/layout/Navigation';
+import Footer from './components/layout/Footer';
+import Practice from './pages/Practice';
+import PracticeDetail from './pages/PracticeDetail';
+import About from './pages/About';
+import Theory from './pages/Theory';
 
-// Simplified Navigation Component (inline for now)
-const Navigation = () => {
-  return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-stone-900/80 backdrop-blur-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <a href="#/" className="flex items-center space-x-2">
-            <span className="text-2xl font-chinese text-gold-500">和門</span>
-            <span className="text-lg font-serif text-stone-100">Harmony Gate</span>
-          </a>
-
-          {/* Simple Navigation Links */}
-          <div className="hidden md:flex items-center space-x-8">
-            <a href="#/about" className="text-stone-300 hover:text-gold-400">About</a>
-            <a href="#/practice" className="text-stone-300 hover:text-gold-400">Practice</a>
-            <a href="#/theory" className="text-stone-300 hover:text-gold-400">Theory</a>
-            <a href="#/meditation" className="text-stone-300 hover:text-gold-400">Meditation</a>
-          </div>
-          
-          {/* Mobile Menu Button (non-functional for simplicity) */}
-          <button className="md:hidden p-2 text-stone-300 hover:text-gold-500">
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </nav>
-  );
-};
-
-// Simplified Footer Component (inline for now)
-const Footer = () => {
-  return (
-    <footer className="bg-stone-900 border-t border-jade-500/10 mt-auto py-8">
-      <div className="max-w-7xl mx-auto px-4 text-center">
-        <div className="flex items-center justify-center space-x-2 mb-4">
-          <span className="text-2xl font-chinese text-gold-500">和門</span>
-          <span className="text-lg font-serif text-stone-100">Harmony Gate</span>
-        </div>
-        <p className="text-stone-500 text-sm">
-          © {new Date().getFullYear()} Harmony Gate. All rights reserved.
-        </p>
-      </div>
-    </footer>
-  );
-};
-
-// Placeholder pages
-const About = () => (
-  <div className="min-h-screen bg-stone-900 pt-24 px-4">
-    <div className="max-w-7xl mx-auto">
-      <h1 className="text-4xl font-serif text-gold-500 mb-8">About Harmony Gate</h1>
-      <p className="text-stone-300 mb-4">
-        Harmony Gate represents a modern approach to traditional Daoist practice, 
-        integrating physical movement, energy work, and spiritual cultivation.
-      </p>
-      <p className="text-stone-300">
-        Our approach bridges Western yoga postures with Eastern energy principles,
-        creating a balanced path for transformation and growth.
-      </p>
-    </div>
-  </div>
-);
-
-const Practice = () => (
-  <div className="min-h-screen bg-stone-900 pt-24 px-4">
-    <div className="max-w-7xl mx-auto">
-      <h1 className="text-4xl font-serif text-gold-500 mb-8">Practice</h1>
-      <p className="text-stone-300">
-        This page will contain our practice library. Coming soon!
-      </p>
-    </div>
-  </div>
-);
-
-const Theory = () => (
-  <div className="min-h-screen bg-stone-900 pt-24 px-4">
-    <div className="max-w-7xl mx-auto">
-      <h1 className="text-4xl font-serif text-gold-500 mb-8">Theory</h1>
-      <p className="text-stone-300">
-        This page will contain theoretical foundations of Daoist practice. Coming soon!
-      </p>
-    </div>
-  </div>
-);
-
+// Placeholder page for Meditation
 const Meditation = () => (
   <div className="min-h-screen bg-stone-900 pt-24 px-4">
     <div className="max-w-7xl mx-auto">
@@ -118,8 +29,7 @@ const NotFound = () => (
       <p className="text-stone-300 mb-8">The path you seek lies elsewhere.</p>
       <a 
         href="#/"
-        className="bg-jade-500 hover:bg-jade-600 text-stone-100 px-6 py-3 
-                 rounded-lg transition-all duration-300 inline-block"
+        className="btn-jade px-6 py-3 inline-block"
       >
         Return to Path
       </a>
@@ -128,23 +38,60 @@ const NotFound = () => (
 );
 
 // Home page component
-const Home = () => (
-  <div>
-    <Hero />
-    <div className="py-24 bg-stone-900 px-4">
-      <div className="max-w-7xl mx-auto text-center">
-        <h2 className="font-chinese text-3xl text-gold-500 mb-4">修練之道</h2>
-        <h3 className="text-4xl font-serif text-stone-100 mb-8">The Path of Practice</h3>
-        <p className="text-stone-300 max-w-3xl mx-auto">
-          Our content is currently under development. Soon you'll be able to access
-          a complete library of Daoist yoga practices, theory, and meditation resources.
-        </p>
+const Home = () => {
+  return (
+    <div>
+      <Hero />
+      <div className="section-elegant bg-stone-900">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="font-chinese text-3xl text-gold-500 mb-4 reveal">修練之道</h2>
+          <h3 className="text-4xl font-serif text-stone-100 mb-8 reveal reveal-delay-1">The Path of Practice</h3>
+          <p className="text-stone-300 max-w-3xl mx-auto mb-12 reveal reveal-delay-2">
+            Our approach integrates traditional Daoist principles with modern yoga practices,
+            creating a comprehensive system for physical development, energy cultivation,
+            and spiritual growth.
+          </p>
+          
+          <div className="flex justify-center reveal reveal-delay-3">
+            <a 
+              href="#/practice"
+              className="btn-jade px-8 py-4 text-lg font-semibold"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-jade-600/0 via-stone-100/30 to-jade-600/0 
+                            translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+              Explore Practices
+            </a>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 function App() {
+  // Reveal animation on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const reveals = document.querySelectorAll('.reveal');
+      const windowHeight = window.innerHeight;
+
+      reveals.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+
+        if (elementTop < windowHeight - elementVisible) {
+          element.classList.add('active');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    // Trigger once on load
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <HashRouter>
       <div className="min-h-screen bg-stone-900 text-stone-100 flex flex-col">
@@ -155,6 +102,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/practice" element={<Practice />} />
+            <Route path="/practice/:practiceId" element={<PracticeDetail />} />
             <Route path="/theory" element={<Theory />} />
             <Route path="/meditation" element={<Meditation />} />
             <Route path="*" element={<NotFound />} />
