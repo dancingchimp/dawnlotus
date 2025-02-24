@@ -1,14 +1,66 @@
 // src/App.jsx
 import React from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
-import Layout from './components/layout/Layout';
-import Navigation from './components/layout/Navigation';
 import Hero from './components/Hero';
-import Footer from './components/layout/Footer';
-import NotFound from './pages/NotFound';
-import LoadingScreen from './components/LoadingScreen';
 
-// Placeholder pages - you'll replace these with your actual pages later
+// Simplified Navigation Component (inline for now)
+const Navigation = () => {
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-stone-900/80 backdrop-blur-md">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <a href="#/" className="flex items-center space-x-2">
+            <span className="text-2xl font-chinese text-gold-500">和門</span>
+            <span className="text-lg font-serif text-stone-100">Harmony Gate</span>
+          </a>
+
+          {/* Simple Navigation Links */}
+          <div className="hidden md:flex items-center space-x-8">
+            <a href="#/about" className="text-stone-300 hover:text-gold-400">About</a>
+            <a href="#/practice" className="text-stone-300 hover:text-gold-400">Practice</a>
+            <a href="#/theory" className="text-stone-300 hover:text-gold-400">Theory</a>
+            <a href="#/meditation" className="text-stone-300 hover:text-gold-400">Meditation</a>
+          </div>
+          
+          {/* Mobile Menu Button (non-functional for simplicity) */}
+          <button className="md:hidden p-2 text-stone-300 hover:text-gold-500">
+            <svg
+              className="h-6 w-6"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+// Simplified Footer Component (inline for now)
+const Footer = () => {
+  return (
+    <footer className="bg-stone-900 border-t border-jade-500/10 mt-auto py-8">
+      <div className="max-w-7xl mx-auto px-4 text-center">
+        <div className="flex items-center justify-center space-x-2 mb-4">
+          <span className="text-2xl font-chinese text-gold-500">和門</span>
+          <span className="text-lg font-serif text-stone-100">Harmony Gate</span>
+        </div>
+        <p className="text-stone-500 text-sm">
+          © {new Date().getFullYear()} Harmony Gate. All rights reserved.
+        </p>
+      </div>
+    </footer>
+  );
+};
+
+// Placeholder pages
 const About = () => (
   <div className="min-h-screen bg-stone-900 pt-24 px-4">
     <div className="max-w-7xl mx-auto">
@@ -58,6 +110,23 @@ const Meditation = () => (
   </div>
 );
 
+// NotFound page
+const NotFound = () => (
+  <div className="min-h-screen bg-stone-900 pt-24 px-4 flex items-center justify-center">
+    <div className="text-center">
+      <h1 className="text-4xl font-serif text-gold-500 mb-4">Page Not Found</h1>
+      <p className="text-stone-300 mb-8">The path you seek lies elsewhere.</p>
+      <a 
+        href="#/"
+        className="bg-jade-500 hover:bg-jade-600 text-stone-100 px-6 py-3 
+                 rounded-lg transition-all duration-300 inline-block"
+      >
+        Return to Path
+      </a>
+    </div>
+  </div>
+);
+
 // Home page component
 const Home = () => (
   <div>
@@ -78,10 +147,10 @@ const Home = () => (
 function App() {
   return (
     <HashRouter>
-      <div className="min-h-screen bg-stone-900 text-stone-100">
-        <Navigation isScrolled={false} />
+      <div className="min-h-screen bg-stone-900 text-stone-100 flex flex-col">
+        <Navigation />
         
-        <main className="relative">
+        <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
