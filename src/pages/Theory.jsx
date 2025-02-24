@@ -1,4 +1,4 @@
-// src/pages/Theory.jsx
+// src/pages/Theory.jsx (with apostrophe fixes)
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -56,7 +56,7 @@ const theoryTopics = [
     id: 'energetics',
     title: 'Energy Systems',
     chinese: '能量系統',
-    description: 'Understanding the body's energy centers, pathways, and cultivation methods',
+    description: 'Understanding the body\'s energy centers, pathways, and cultivation methods',
     image: '/api/placeholder/400/225',
     sections: [
       {
