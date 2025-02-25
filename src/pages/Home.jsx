@@ -1,5 +1,7 @@
+// src/pages/Home.jsx
 import React from 'react';
 import Hero from '../components/Hero';
+import DaoistYogaConcept from '../components/sections/DaoistYogaConcept';
 import PracticeOverview from '../components/sections/PracticeOverview';
 import TeachingsSection from '../components/sections/TeachingsSection';
 import PhilosophySection from '../components/sections/PhilosophySection';
@@ -9,6 +11,9 @@ function Home() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <Hero />
+
+      {/* Daoist Yoga Concept */}
+      <DaoistYogaConcept />
 
       {/* Practice Overview */}
       <section className="py-24 bg-stone-900 relative">

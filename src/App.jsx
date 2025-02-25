@@ -1,15 +1,31 @@
 // src/App.jsx
 import React, { useEffect } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
-import Hero from './components/Hero';
+import { AuthProvider } from './context/AuthContext';
+import { AppProvider } from './context/AppContext';
+
+// Layout Components
 import Navigation from './components/layout/Navigation';
 import Footer from './components/layout/Footer';
+import LoadingScreen from './components/LoadingScreen';
+
+// Page Components
+import Home from './pages/Home';
 import Practice from './pages/Practice';
 import PracticeDetail from './pages/PracticeDetail';
 import About from './pages/About';
 import Theory from './pages/Theory';
+import NotFound from './pages/NotFound';
+
+// Educational Components
 import NeiGongStudy from './components/education/NeiGongStudy';
 import TaiChiStudy from './components/education/TaiChiStudy';
+import DaoistYogaCurriculum from './components/education/DaoistYogaCurriculum';
+
+// New Components
+import DaoistFoundationPractices from './components/practice/DaoistFoundationPractices';
+import PracticeSession from './components/practice/PracticeSession';
+import { samplePractices } from './data/samplePractices';
 
 // Placeholder page for Meditation
 const Meditation = () => (
@@ -22,53 +38,6 @@ const Meditation = () => (
     </div>
   </div>
 );
-
-// NotFound page
-const NotFound = () => (
-  <div className="min-h-screen bg-stone-900 pt-24 px-4 flex items-center justify-center">
-    <div className="text-center">
-      <h1 className="text-4xl font-serif text-gold-500 mb-4">Page Not Found</h1>
-      <p className="text-stone-300 mb-8">The path you seek lies elsewhere.</p>
-      <a 
-        href="#/"
-        className="btn-jade px-6 py-3 inline-block"
-      >
-        Return to Path
-      </a>
-    </div>
-  </div>
-);
-
-// Home page component
-const Home = () => {
-  return (
-    <div>
-      <Hero />
-      <div className="section-elegant bg-stone-900">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="font-chinese text-3xl text-gold-500 mb-4 reveal">修練之道</h2>
-          <h3 className="text-4xl font-serif text-stone-100 mb-8 reveal reveal-delay-1">The Path of Practice</h3>
-          <p className="text-stone-300 max-w-3xl mx-auto mb-12 reveal reveal-delay-2">
-            Our approach integrates traditional Daoist principles with modern yoga practices,
-            creating a comprehensive system for physical development, energy cultivation,
-            and spiritual growth.
-          </p>
-          
-          <div className="flex justify-center reveal reveal-delay-3">
-            <a 
-              href="#/practice"
-              className="btn-jade px-8 py-4 text-lg font-semibold"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-jade-600/0 via-stone-100/30 to-jade-600/0 
-                            translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-              Explore Practices
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
 
 function App() {
   // Reveal animation on scroll
@@ -94,27 +63,59 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Sample practice renderer for demo purposes
+  const MeridianFlowSession = () => (
+    <PracticeSession practice={samplePractices.find(p => p.id === 'meridian-flow-sequence')} />
+  );
+  
+  const FiveElementsSession = () => (
+    <PracticeSession practice={samplePractices.find(p => p.id === 'five-elements-balance')} />
+  );
+  
+  const FoundationSession = () => (
+    <PracticeSession practice={samplePractices.find(p => p.id === 'foundation-practice')} />
+  );
+
   return (
     <HashRouter>
-      <div className="min-h-screen bg-stone-900 text-stone-100 flex flex-col">
-        <Navigation />
-        
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/practice" element={<Practice />} />
-            <Route path="/practice/:practiceId" element={<PracticeDetail />} />
-            <Route path="/theory" element={<Theory />} />
-            <Route path="/meditation" element={<Meditation />} />
-            <Route path="/neigong" element={<NeiGongStudy />} />
-            <Route path="/taichi" element={<TaiChiStudy />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
-        
-        <Footer />
-      </div>
+      <AppProvider>
+        <AuthProvider>
+          <div className="min-h-screen bg-stone-900 text-stone-100 flex flex-col">
+            <Navigation />
+            
+            <main className="flex-grow">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                
+                {/* Practice Routes */}
+                <Route path="/practice" element={<Practice />} />
+                <Route path="/practice/:practiceId" element={<PracticeDetail />} />
+                <Route path="/practice/daoist-foundations" element={<DaoistFoundationPractices />} />
+                <Route path="/practice/meridian-flow" element={<MeridianFlowSession />} />
+                <Route path="/practice/five-elements" element={<FiveElementsSession />} />
+                <Route path="/practice/foundation" element={<FoundationSession />} />
+                
+                {/* Theory Route */}
+                <Route path="/theory" element={<Theory />} />
+                
+                {/* Meditation Route */}
+                <Route path="/meditation" element={<Meditation />} />
+                
+                {/* Educational Routes */}
+                <Route path="/neigong" element={<NeiGongStudy />} />
+                <Route path="/taichi" element={<TaiChiStudy />} />
+                <Route path="/daoist-yoga-curriculum" element={<DaoistYogaCurriculum />} />
+                
+                {/* 404 Route */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </main>
+            
+            <Footer />
+          </div>
+        </AuthProvider>
+      </AppProvider>
     </HashRouter>
   );
 }
