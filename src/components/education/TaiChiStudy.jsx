@@ -1,9 +1,6 @@
 // src/components/education/TaiChiStudy.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BookOpen, Compass, Feather, Wind, Circle, Move } from 'lucide-react';
-
-// Add a debug log to verify component is rendering
-console.log("TaiChiStudy.jsx is being loaded");
 
 const taiChiContent = {
   essence: {
@@ -169,17 +166,6 @@ function TaiChiStudy() {
   const [activeSection, setActiveSection] = useState('essence');
   const [activeSubsection, setActiveSubsection] = useState(null);
 
-  // Add debug log when component renders
-  useEffect(() => {
-    console.log("TaiChiStudy component has mounted");
-    return () => console.log("TaiChiStudy component has unmounted");
-  }, []);
-
-  // Add another debug log when activeSection changes
-  useEffect(() => {
-    console.log("Active section changed to:", activeSection);
-  }, [activeSection]);
-
   const handleSectionClick = (sectionKey) => {
     setActiveSection(sectionKey);
     setActiveSubsection(null);
@@ -188,9 +174,6 @@ function TaiChiStudy() {
   const handleSubsectionClick = (subsectionIndex) => {
     setActiveSubsection(activeSubsection === subsectionIndex ? null : subsectionIndex);
   };
-
-   // Simple debug render to verify component is working
-   console.log("TaiChiStudy is rendering with activeSection:", activeSection);
 
   const renderContentSection = () => {
     const section = taiChiContent[activeSection];
