@@ -1,16 +1,12 @@
 // src/pages/LogPractice.jsx
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext'; // If using AuthContext
 
 function LogPractice() {
   const [practiceType, setPracticeType] = useState('');
   const [duration, setDuration] = useState('');
   const [notes, setNotes] = useState('');
   const [submitted, setSubmitted] = useState(false);
-  
-  // Get current user from auth context
-  const { currentUser } = useAuth();
   
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -1,12 +1,8 @@
 // src/pages/Profile.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext'; // If using AuthContext
 
 function Profile() {
-  // Get current user from auth context
-  const { currentUser } = useAuth();
-  
   return (
     <div className="min-h-screen bg-stone-900 py-24 px-4">
       <div className="max-w-7xl mx-auto">

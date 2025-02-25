@@ -1,7 +1,6 @@
 // src/App.jsx
 import React, { useEffect } from 'react';
 import { HashRouter, Routes, Route, useNavigate } from 'react-router-dom';
-import { AuthProvider, useAuth } from './context/AuthContext';
 
 // Layout Components
 import Navigation from './components/layout/Navigation';
@@ -14,10 +13,10 @@ import Practice from './pages/Practice';
 import PracticeDetail from './pages/PracticeDetail';
 import About from './pages/About';
 import Theory from './pages/Theory';
-import Progress from './pages/Progress';
-import NotFound from './pages/NotFound';
 import Profile from './pages/Profile';
+import Progress from './pages/Progress';
 import LogPractice from './pages/LogPractice';
+import NotFound from './pages/NotFound';
 
 // Educational Components
 import NeiGongStudy from './components/education/NeiGongStudy';
@@ -30,32 +29,28 @@ import FiveElementsSession from './components/practice/sessions/FiveElementsSess
 import FoundationSession from './components/practice/sessions/FoundationSession';
 import RecommendedPractice from './components/practice/sessions/RecommendedPractice';
 
-// Meditation placeholder
+// Placeholder page for Meditation
 const Meditation = () => (
   <div className="min-h-screen bg-stone-900 pt-24 px-4">
     <div className="max-w-7xl mx-auto">
       <h1 className="text-4xl font-serif text-gold-400 mb-8">Meditation</h1>
-      <p className="text-stone-300">
+      <p className="text-stone-200">
         This page will contain meditation resources. Coming soon!
       </p>
     </div>
   </div>
 );
 
-// Main App Wrapper to provide context
-function AppWrapper() {
-  return (
-    <AuthProvider>
-      <AppContent />
-    </AuthProvider>
-  );
-}
+// Mock user data provider until you implement auth context
+const currentUser = {
+  displayName: 'Harmony Seeker',
+  level: 2,
+  nextMilestone: 'Channel Opening Phase',
+  lastPractice: '2025-02-24',
+  currentStreak: 6
+};
 
-// Main App Component with access to context
-function AppContent() {
-  // Get current user from auth context
-  const { currentUser } = useAuth();
-  
+function App() {
   // Reveal animation on scroll
   useEffect(() => {
     const handleScroll = () => {
@@ -82,9 +77,9 @@ function AppContent() {
   return (
     <HashRouter>
       <div className="min-h-screen bg-stone-900 text-stone-100 flex flex-col">
-        <div className="flex justify-between items-center px-4 fixed w-full z-50 bg-stone-900/90 backdrop-blur-md shadow-md shadow-black/30">
+        <div className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-4 bg-stone-900/90 backdrop-blur-md shadow-md shadow-black/30">
           <Navigation />
-          <ProfileAccessNavigator userData={currentUser} />
+          <ProfileNavigator userData={currentUser} />
         </div>
         
         <main className="flex-grow pt-16"> {/* Added padding-top to account for fixed header */}
@@ -129,16 +124,20 @@ function AppContent() {
   );
 }
 
-// ProfileAccessNavigator Component with navigation capability
-function ProfileAccessNavigator({ userData }) {
+// ProfileNavigator Component
+function ProfileNavigator({ userData }) {
   const navigate = useNavigate();
+  
+  const handleNavigation = (path) => {
+    navigate(path);
+  };
   
   return (
     <ProfileAccessButton 
       userData={userData} 
-      onNavigate={(path) => navigate(path)} 
+      onNavigate={handleNavigation} 
     />
   );
 }
 
-export default AppWrapper;
+export default App;
