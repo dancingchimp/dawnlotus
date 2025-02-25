@@ -1,10 +1,12 @@
 // src/App.jsx
 import React, { useEffect } from 'react';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import { AuthProvider, useAuth } from './context/AuthContext';
 
 // Layout Components
 import Navigation from './components/layout/Navigation';
 import Footer from './components/layout/Footer';
+import ProfileAccessButton from './components/user/ProfileAccessButton';
 
 // Page Components
 import Home from './pages/Home';
@@ -12,17 +14,27 @@ import Practice from './pages/Practice';
 import PracticeDetail from './pages/PracticeDetail';
 import About from './pages/About';
 import Theory from './pages/Theory';
+import Progress from './pages/Progress';
 import NotFound from './pages/NotFound';
+import Profile from './pages/Profile';
+import LogPractice from './pages/LogPractice';
 
 // Educational Components
 import NeiGongStudy from './components/education/NeiGongStudy';
 import TaiChiStudy from './components/education/TaiChiStudy';
+import DaoistYogaCurriculum from './components/education/DaoistYogaCurriculum';
 
-// Placeholder page for Meditation
+// Practice session components
+import MeridianFlowSession from './components/practice/sessions/MeridianFlowSession';
+import FiveElementsSession from './components/practice/sessions/FiveElementsSession';
+import FoundationSession from './components/practice/sessions/FoundationSession';
+import RecommendedPractice from './components/practice/sessions/RecommendedPractice';
+
+// Meditation placeholder
 const Meditation = () => (
   <div className="min-h-screen bg-stone-900 pt-24 px-4">
     <div className="max-w-7xl mx-auto">
-      <h1 className="text-4xl font-serif text-gold-500 mb-8">Meditation</h1>
+      <h1 className="text-4xl font-serif text-gold-400 mb-8">Meditation</h1>
       <p className="text-stone-300">
         This page will contain meditation resources. Coming soon!
       </p>
@@ -30,65 +42,20 @@ const Meditation = () => (
   </div>
 );
 
-// Placeholder for the DaoistYoga curriculum component
-const DaoistYogaCurriculum = () => (
-  <div className="min-h-screen bg-stone-900 pt-24 px-4">
-    <div className="max-w-7xl mx-auto">
-      <h1 className="text-4xl font-serif text-gold-500 mb-8">Daoist Yoga Curriculum</h1>
-      <p className="text-stone-300">
-        Our curriculum integrates Western yoga postures with Daoist energy principles.
-      </p>
-      <div className="mt-8 p-6 bg-stone-800/50 rounded-xl border border-jade-500/20">
-        <h2 className="text-2xl font-serif text-gold-500 mb-4">About Daoist Yoga</h2>
-        <p className="text-stone-300 mb-4">
-          Daoist Yoga is a unique approach that integrates traditional Daoist energy principles with accessible
-          Western yoga postures. This creates a comprehensive system for:
-        </p>
-        <ul className="list-disc pl-6 space-y-2 text-stone-300">
-          <li>Physical development that properly opens meridian pathways</li>
-          <li>Energy cultivation through specific breath and awareness techniques</li>
-          <li>Spiritual transformation that emerges naturally from consistent practice</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-);
+// Main App Wrapper to provide context
+function AppWrapper() {
+  return (
+    <AuthProvider>
+      <AppContent />
+    </AuthProvider>
+  );
+}
 
-// Simple placeholder practice session components
-const MeridianFlowSession = () => (
-  <div className="min-h-screen bg-stone-900 pt-24 px-4">
-    <div className="max-w-7xl mx-auto">
-      <h1 className="text-4xl font-serif text-gold-500 mb-8">Meridian Flow Sequence</h1>
-      <p className="text-stone-300 mb-8">
-        A flowing sequence that works systematically through the major meridian pathways, opening energy channels while building strength and flexibility.
-      </p>
-    </div>
-  </div>
-);
-
-const FiveElementsSession = () => (
-  <div className="min-h-screen bg-stone-900 pt-24 px-4">
-    <div className="max-w-7xl mx-auto">
-      <h1 className="text-4xl font-serif text-gold-500 mb-8">Five Elements Balance</h1>
-      <p className="text-stone-300 mb-8">
-        A practice designed around the Five Elements theory, creating balance between Water, Wood, Fire, Earth, and Metal energies within the body.
-      </p>
-    </div>
-  </div>
-);
-
-const FoundationSession = () => (
-  <div className="min-h-screen bg-stone-900 pt-24 px-4">
-    <div className="max-w-7xl mx-auto">
-      <h1 className="text-4xl font-serif text-gold-500 mb-8">Foundation Practice</h1>
-      <p className="text-stone-300 mb-8">
-        An introductory sequence that establishes proper alignment, breath awareness, and basic energy principles for beginners.
-      </p>
-    </div>
-  </div>
-);
-
-function App() {
+// Main App Component with access to context
+function AppContent() {
+  // Get current user from auth context
+  const { currentUser } = useAuth();
+  
   // Reveal animation on scroll
   useEffect(() => {
     const handleScroll = () => {
@@ -115,9 +82,12 @@ function App() {
   return (
     <HashRouter>
       <div className="min-h-screen bg-stone-900 text-stone-100 flex flex-col">
-        <Navigation />
+        <div className="flex justify-between items-center px-4 fixed w-full z-50 bg-stone-900/90 backdrop-blur-md shadow-md shadow-black/30">
+          <Navigation />
+          <ProfileAccessNavigator userData={currentUser} />
+        </div>
         
-        <main className="flex-grow">
+        <main className="flex-grow pt-16"> {/* Added padding-top to account for fixed header */}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -126,10 +96,16 @@ function App() {
             <Route path="/practice" element={<Practice />} />
             <Route path="/practice/:practiceId" element={<PracticeDetail />} />
             
-            {/* Placeholder routes for the practice sessions */}
+            {/* Practice Session Routes */}
             <Route path="/practice/meridian-flow" element={<MeridianFlowSession />} />
             <Route path="/practice/five-elements" element={<FiveElementsSession />} />
             <Route path="/practice/foundation" element={<FoundationSession />} />
+            <Route path="/practice/recommended" element={<RecommendedPractice />} />
+            
+            {/* User Routes */}
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/progress" element={<Progress />} />
+            <Route path="/log-practice" element={<LogPractice />} />
             
             {/* Theory Route */}
             <Route path="/theory" element={<Theory />} />
@@ -153,4 +129,16 @@ function App() {
   );
 }
 
-export default App;
+// ProfileAccessNavigator Component with navigation capability
+function ProfileAccessNavigator({ userData }) {
+  const navigate = useNavigate();
+  
+  return (
+    <ProfileAccessButton 
+      userData={userData} 
+      onNavigate={(path) => navigate(path)} 
+    />
+  );
+}
+
+export default AppWrapper;
