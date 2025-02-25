@@ -1,3 +1,8 @@
+// Run this command to replace your README.md
+// Make sure you're in your project root directory
+
+# Create updated README.md
+cat > README.md << 'EOL'
 # Harmony Gate (和門 Hé Mén)
 
 A holistic Daoist yoga and spiritual practice platform integrating traditional wisdom with modern techniques.
@@ -92,3 +97,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ---
 
 *"The integration of breath, movement, and awareness creates the conditions for transformation on all levels—physical, energetic, and spiritual."*
+EOL
