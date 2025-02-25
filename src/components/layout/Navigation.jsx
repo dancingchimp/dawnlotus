@@ -62,23 +62,23 @@ function Navigation() {
           </Link>
 
           <div className="flex items-center">
-            {/* Study Buttons - Responsive for all screen sizes */}
+            {/* Study Buttons - Simplified for Mobile */}
             <div className="flex space-x-1 sm:space-x-2 mr-2 sm:mr-6">
-              <div className="relative group daoist-yoga-menu">
+              {/* On mobile, use a simple button with dropdown */}
+              <div className="md:hidden relative group daoist-yoga-menu">
                 <button 
-                  className="bg-gold-500 hover:bg-gold-600 text-stone-900 px-2 sm:px-3 py-2 
-                          rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 flex items-center gap-1 whitespace-nowrap"
+                  className="bg-gold-500 hover:bg-gold-600 text-stone-900 px-3 py-2 
+                          rounded-lg text-sm font-medium transition-all duration-300 flex items-center gap-1"
                   onClick={(e) => {
                     e.stopPropagation();
                     setIsSubmenuOpen(!isSubmenuOpen);
                   }}
                 >
-                  <span className="hidden sm:inline">Study</span> 
                   <span className="flex items-center">
-                    Daoist Yoga
+                    Study
                     <svg 
                       xmlns="http://www.w3.org/2000/svg" 
-                      className={`h-3 w-3 sm:h-4 sm:w-4 ml-1 transition-transform duration-300 ${isSubmenuOpen ? 'rotate-180' : ''}`} 
+                      className={`h-4 w-4 ml-1 transition-transform duration-300 ${isSubmenuOpen ? 'rotate-180' : ''}`} 
                       fill="none" 
                       viewBox="0 0 24 24" 
                       stroke="currentColor"
@@ -88,55 +88,141 @@ function Navigation() {
                   </span>
                 </button>
                 
-                {/* Dropdown Menu - Positioned better for mobile */}
+                {/* Mobile Dropdown Menu - Includes all options */}
                 {isSubmenuOpen && (
                   <div className="absolute right-0 mt-2 w-48 bg-stone-800/95 backdrop-blur-sm rounded-lg shadow-lg py-1 z-50">
-                    <Link 
-                      to="/daoist-yoga-curriculum"
-                      className="block px-4 py-2 text-sm text-stone-300 hover:bg-jade-500/20 hover:text-jade-400"
-                      onClick={() => setIsSubmenuOpen(false)}
-                    >
-                      Curriculum Overview
-                    </Link>
-                    <Link 
-                      to="/practice/foundation"
-                      className="block px-4 py-2 text-sm text-stone-300 hover:bg-jade-500/20 hover:text-jade-400"
-                      onClick={() => setIsSubmenuOpen(false)}
-                    >
-                      Foundation Practice
-                    </Link>
-                    <Link 
-                      to="/practice/meridian-flow"
-                      className="block px-4 py-2 text-sm text-stone-300 hover:bg-jade-500/20 hover:text-jade-400"
-                      onClick={() => setIsSubmenuOpen(false)}
-                    >
-                      Meridian Flow Sequence
-                    </Link>
-                    <Link 
-                      to="/practice/five-elements"
-                      className="block px-4 py-2 text-sm text-stone-300 hover:bg-jade-500/20 hover:text-jade-400"
-                      onClick={() => setIsSubmenuOpen(false)}
-                    >
-                      Five Elements Balance
-                    </Link>
+                    <div className="border-b border-stone-700 pb-1 mb-1">
+                      <span className="block px-4 py-1 text-xs font-medium text-stone-500">Daoist Yoga</span>
+                      <Link 
+                        to="/daoist-yoga-curriculum"
+                        className="block px-4 py-2 text-sm text-stone-300 hover:bg-jade-500/20 hover:text-jade-400"
+                        onClick={() => setIsSubmenuOpen(false)}
+                      >
+                        Curriculum Overview
+                      </Link>
+                      <Link 
+                        to="/practice/foundation"
+                        className="block px-4 py-2 text-sm text-stone-300 hover:bg-jade-500/20 hover:text-jade-400"
+                        onClick={() => setIsSubmenuOpen(false)}
+                      >
+                        Foundation Practice
+                      </Link>
+                      <Link 
+                        to="/practice/meridian-flow"
+                        className="block px-4 py-2 text-sm text-stone-300 hover:bg-jade-500/20 hover:text-jade-400"
+                        onClick={() => setIsSubmenuOpen(false)}
+                      >
+                        Meridian Flow
+                      </Link>
+                      <Link 
+                        to="/practice/five-elements"
+                        className="block px-4 py-2 text-sm text-stone-300 hover:bg-jade-500/20 hover:text-jade-400"
+                        onClick={() => setIsSubmenuOpen(false)}
+                      >
+                        Five Elements
+                      </Link>
+                    </div>
+                    
+                    <div className="border-b border-stone-700 pb-1 mb-1">
+                      <span className="block px-4 py-1 text-xs font-medium text-stone-500">Nei Gong</span>
+                      <Link 
+                        to="/neigong"
+                        className="block px-4 py-2 text-sm text-stone-300 hover:bg-jade-500/20 hover:text-jade-400"
+                        onClick={() => setIsSubmenuOpen(false)}
+                      >
+                        Study Nei Gong
+                      </Link>
+                    </div>
+                    
+                    <div>
+                      <span className="block px-4 py-1 text-xs font-medium text-stone-500">Tai Chi</span>
+                      <Link 
+                        to="/taichi"
+                        className="block px-4 py-2 text-sm text-stone-300 hover:bg-jade-500/20 hover:text-jade-400"
+                        onClick={() => setIsSubmenuOpen(false)}
+                      >
+                        Study Tai Chi
+                      </Link>
+                    </div>
                   </div>
                 )}
               </div>
               
-              <Link 
-                to="/neigong"
-                className="bg-jade-500 hover:bg-jade-600 text-stone-100 px-2 sm:px-3 py-2 
-                        rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 whitespace-nowrap"
-              >
-                <span className="hidden sm:inline">Study</span> Nei Gong
-              </Link>
-              <Link 
-                to="/taichi"
-                className="bg-stone-700 hover:bg-stone-600 text-stone-100 px-2 sm:px-3 py-2 
-                        rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 whitespace-nowrap"
-              >
-                <span className="hidden sm:inline">Study</span> Tai Chi
-              </Link>
+              {/* Desktop version with separate buttons */}
+              <div className="hidden md:flex md:space-x-2">
+                <div className="relative group daoist-yoga-menu">
+                  <button 
+                    className="bg-gold-500 hover:bg-gold-600 text-stone-900 px-3 py-2 
+                            rounded-lg text-sm font-medium transition-all duration-300 flex items-center gap-1 whitespace-nowrap"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setIsSubmenuOpen(!isSubmenuOpen);
+                    }}
+                  >
+                    <span className="flex items-center">
+                      Study Daoist Yoga
+                      <svg 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        className={`h-4 w-4 ml-1 transition-transform duration-300 ${isSubmenuOpen ? 'rotate-180' : ''}`} 
+                        fill="none" 
+                        viewBox="0 0 24 24" 
+                        stroke="currentColor"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </span>
+                  </button>
+                  
+                  {/* Desktop Dropdown Menu */}
+                  {isSubmenuOpen && (
+                    <div className="absolute right-0 mt-2 w-48 bg-stone-800/95 backdrop-blur-sm rounded-lg shadow-lg py-1 z-50">
+                      <Link 
+                        to="/daoist-yoga-curriculum"
+                        className="block px-4 py-2 text-sm text-stone-300 hover:bg-jade-500/20 hover:text-jade-400"
+                        onClick={() => setIsSubmenuOpen(false)}
+                      >
+                        Curriculum Overview
+                      </Link>
+                      <Link 
+                        to="/practice/foundation"
+                        className="block px-4 py-2 text-sm text-stone-300 hover:bg-jade-500/20 hover:text-jade-400"
+                        onClick={() => setIsSubmenuOpen(false)}
+                      >
+                        Foundation Practice
+                      </Link>
+                      <Link 
+                        to="/practice/meridian-flow"
+                        className="block px-4 py-2 text-sm text-stone-300 hover:bg-jade-500/20 hover:text-jade-400"
+                        onClick={() => setIsSubmenuOpen(false)}
+                      >
+                        Meridian Flow Sequence
+                      </Link>
+                      <Link 
+                        to="/practice/five-elements"
+                        className="block px-4 py-2 text-sm text-stone-300 hover:bg-jade-500/20 hover:text-jade-400"
+                        onClick={() => setIsSubmenuOpen(false)}
+                      >
+                        Five Elements Balance
+                      </Link>
+                    </div>
+                  )}
+                </div>
+                
+                <Link 
+                  to="/neigong"
+                  className="bg-jade-500 hover:bg-jade-600 text-stone-100 px-3 py-2 
+                          rounded-lg text-sm font-medium transition-all duration-300 whitespace-nowrap"
+                >
+                  Study Nei Gong
+                </Link>
+                <Link 
+                  to="/taichi"
+                  className="bg-stone-700 hover:bg-stone-600 text-stone-100 px-3 py-2 
+                          rounded-lg text-sm font-medium transition-all duration-300 whitespace-nowrap"
+                >
+                  Study Tai Chi
+                </Link>
+              </div>
             </div>
 
             {/* Desktop Navigation */}
