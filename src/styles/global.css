@@ -122,7 +122,7 @@
   
   /* Section styling */
   .section-elegant {
-    @apply py-24 px-4 relative overflow-hidden;
+    @apply py-24 px-4 relative overflow-hidden z-10;
   }
   
   .section-elegant::before {
@@ -274,5 +274,111 @@
   
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
     @apply bg-jade-500/70;
+  }
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 640px) {
+  /* Improved typography for mobile */
+  h1 {
+    @apply text-3xl leading-tight;
+  }
+  
+  h2 {
+    @apply text-2xl leading-tight;
+  }
+  
+  h3 {
+    @apply text-xl leading-tight;
+  }
+  
+  p {
+    @apply text-base leading-relaxed;
+  }
+  
+  /* Improve touch targets for mobile */
+  button, a {
+    @apply min-h-[40px] min-w-[40px] flex items-center justify-center;
+  }
+  
+  /* Adjust padding for mobile */
+  .section-elegant {
+    @apply py-16 px-4;
+  }
+  
+  /* Fix for sections that might be causing the text overlay issue */
+  section, main > div {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Ensure navigation doesn't cover content */
+  main {
+    padding-top: 4rem;
+  }
+  
+  /* Ensure content doesn't get hidden under fixed navigation */
+  .pt-24 {
+    padding-top: 6rem !important;
+  }
+  
+  /* Adjust card spacing on mobile */
+  .card-elegant {
+    @apply mb-6;
+  }
+  
+  /* Better mobile grid gaps */
+  .gap-8 {
+    @apply gap-5;
+  }
+  
+  /* Fix mobile menu scroll issues */
+  .max-h-screen {
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+  }
+}
+
+/* Fix for content being covered by navigation on scroll */
+.section-elegant {
+  position: relative;
+  z-index: 1;
+}
+
+/* Ensuring footer has proper z-index */
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Improved mobile header spacing */
+.min-h-screen {
+  min-height: 100vh;
+}
+
+/* Adjust vertical spacing in mobile dropdowns */
+@media (max-width: 640px) {
+  .dropdown-menu li a {
+    @apply py-3;
+  }
+  
+  /* Ensure buttons are easier to tap */
+  nav button, nav a {
+    @apply touch-manipulation;
+  }
+  
+  /* Prevent text selection when tapping navigation */
+  nav {
+    @apply select-none;
+  }
+}
+
+/* Safe area insets for notched phones */
+@supports (padding-top: env(safe-area-inset-top)) {
+  body, nav {
+    padding-top: env(safe-area-inset-top);
+    padding-right: env(safe-area-inset-right);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
   }
 }

@@ -15,20 +15,42 @@ function Navigation() {
   const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
   const location = useLocation();
 
-  // Add scroll listener
+  // Add scroll listener with increased sensitivity for mobile
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20); // More sensitive (was 50)
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close submenu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isSubmenuOpen && !event.target.closest('.daoist-yoga-menu')) {
+        setIsSubmenuOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [isSubmenuOpen]);
+
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+    setIsSubmenuOpen(false);
+  }, [location]);
+
   return (
     <nav 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-stone-900/80 backdrop-blur-md' : 'bg-transparent'
+        isScrolled 
+          ? 'bg-stone-900/90 backdrop-blur-md shadow-md shadow-black/30' 
+          : 'bg-stone-900/70 backdrop-blur-sm'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -40,29 +62,35 @@ function Navigation() {
           </Link>
 
           <div className="flex items-center">
-            {/* Study Buttons - Visible on all screen sizes */}
-            <div className="flex space-x-2 mr-6">
-              <div className="relative group">
+            {/* Study Buttons - Responsive for all screen sizes */}
+            <div className="flex space-x-1 sm:space-x-2 mr-2 sm:mr-6">
+              <div className="relative group daoist-yoga-menu">
                 <button 
-                  className="bg-gold-500 hover:bg-gold-600 text-stone-900 px-3 py-2 
-                          rounded-lg text-sm font-medium transition-all duration-300 flex items-center gap-1"
-                  onClick={() => setIsSubmenuOpen(!isSubmenuOpen)}
+                  className="bg-gold-500 hover:bg-gold-600 text-stone-900 px-2 sm:px-3 py-2 
+                          rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 flex items-center gap-1 whitespace-nowrap"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsSubmenuOpen(!isSubmenuOpen);
+                  }}
                 >
-                  <span className="hidden sm:inline">Study</span> Daoist Yoga
-                  <svg 
-                    xmlns="http://www.w3.org/2000/svg" 
-                    className={`h-4 w-4 transition-transform duration-300 ${isSubmenuOpen ? 'rotate-180' : ''}`} 
-                    fill="none" 
-                    viewBox="0 0 24 24" 
-                    stroke="currentColor"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
+                  <span className="hidden sm:inline">Study</span> 
+                  <span className="flex items-center">
+                    Daoist Yoga
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      className={`h-3 w-3 sm:h-4 sm:w-4 ml-1 transition-transform duration-300 ${isSubmenuOpen ? 'rotate-180' : ''}`} 
+                      fill="none" 
+                      viewBox="0 0 24 24" 
+                      stroke="currentColor"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </span>
                 </button>
                 
-                {/* Dropdown Menu */}
+                {/* Dropdown Menu - Positioned better for mobile */}
                 {isSubmenuOpen && (
-                  <div className="absolute right-0 mt-2 w-48 bg-stone-800 rounded-lg shadow-lg py-1 z-50">
+                  <div className="absolute right-0 mt-2 w-48 bg-stone-800/95 backdrop-blur-sm rounded-lg shadow-lg py-1 z-50">
                     <Link 
                       to="/daoist-yoga-curriculum"
                       className="block px-4 py-2 text-sm text-stone-300 hover:bg-jade-500/20 hover:text-jade-400"
@@ -97,15 +125,15 @@ function Navigation() {
               
               <Link 
                 to="/neigong"
-                className="bg-jade-500 hover:bg-jade-600 text-stone-100 px-3 py-2 
-                        rounded-lg text-sm font-medium transition-all duration-300"
+                className="bg-jade-500 hover:bg-jade-600 text-stone-100 px-2 sm:px-3 py-2 
+                        rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 whitespace-nowrap"
               >
                 <span className="hidden sm:inline">Study</span> Nei Gong
               </Link>
               <Link 
                 to="/taichi"
-                className="bg-stone-700 hover:bg-stone-600 text-stone-100 px-3 py-2 
-                        rounded-lg text-sm font-medium transition-all duration-300"
+                className="bg-stone-700 hover:bg-stone-600 text-stone-100 px-2 sm:px-3 py-2 
+                        rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 whitespace-nowrap"
               >
                 <span className="hidden sm:inline">Study</span> Tai Chi
               </Link>
@@ -135,8 +163,13 @@ function Navigation() {
 
           {/* Mobile Menu Button */}
           <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsMobileMenuOpen(!isMobileMenuOpen);
+              if (isSubmenuOpen) setIsSubmenuOpen(false);
+            }}
             className="md:hidden p-2 rounded-md text-stone-300 hover:text-gold-500 focus:outline-none"
+            aria-label="Toggle mobile menu"
           >
             <span className="sr-only">Open main menu</span>
             <svg
@@ -162,11 +195,11 @@ function Navigation() {
       <div
         className={`md:hidden transition-all duration-300 ease-in-out ${
           isMobileMenuOpen
-            ? 'opacity-100 translate-y-0'
-            : 'opacity-0 -translate-y-4 pointer-events-none'
+            ? 'opacity-100 translate-y-0 max-h-screen'
+            : 'opacity-0 -translate-y-4 max-h-0 overflow-hidden pointer-events-none'
         }`}
       >
-        <div className="px-2 pt-2 pb-3 space-y-1 bg-stone-800/90 backdrop-blur-md">
+        <div className="px-2 pt-2 pb-3 space-y-1 bg-stone-800/95 backdrop-blur-md shadow-lg">
           {/* Study buttons included in mobile menu */}
           <div className="flex flex-col gap-2 mb-4">
             <span className="px-3 py-1 text-sm text-stone-400">Study Programs:</span>
