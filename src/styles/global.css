@@ -137,6 +137,37 @@
   }
 }
 
+/* Practice path cards with better mobile spacing */
+.practice-path-card {
+  @apply flex flex-col p-6;
+}
+
+.practice-path-title {
+  @apply text-xl font-serif text-gold-500;
+}
+
+.practice-path-chinese {
+  @apply text-stone-400 font-chinese;
+}
+
+.practice-path-description {
+  @apply text-stone-300;
+}
+
+/* Adjust the flex layout for the study areas to be more responsive */
+.study-title {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 640px) {
+  .study-title {
+    flex-wrap: nowrap;
+  }
+}
+
 /* Custom Animations */
 @keyframes float {
   0%, 100% { transform: translateY(0); }
@@ -336,6 +367,49 @@
   .max-h-screen {
     max-height: calc(100vh - 4rem);
     overflow-y: auto;
+  }
+  
+  /* Enhance spacing between the practice card title and description */
+  .practice-path-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+  
+  .practice-path-card > div {
+    margin-bottom: 1.25rem;
+  }
+  
+  /* Make titles larger and more prominent on mobile */
+  .practice-path-title {
+    font-size: 1.75rem;
+    line-height: 1.2;
+    margin-bottom: 0.25rem;
+  }
+  
+  /* Increase spacing between Chinese text and description */
+  .practice-path-chinese {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Ensure description text is readable */
+  .practice-path-description {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  /* Fix layout for the practice overview grid */
+  .home-practices-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  /* Improve spacing of links in navigation dropdown */
+  .mobile-nav-link {
+    padding: 0.75rem 1rem;
+    display: block;
   }
 }
 

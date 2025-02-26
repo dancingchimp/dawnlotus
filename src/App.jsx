@@ -13,6 +13,7 @@ import Practice from './pages/Practice';
 import PracticeDetail from './pages/PracticeDetail';
 import About from './pages/About';
 import Theory from './pages/Theory';
+import Meditation from './pages/Meditation';
 import NotFound from './pages/NotFound';
 
 // Educational Components
@@ -28,18 +29,6 @@ import RecommendedPractice from './components/practice/sessions/RecommendedPract
 
 // User profile components
 import UserProgressTracker from './components/user/UserProgressTracker';
-
-// Placeholder components for missing pages
-const Meditation = () => (
-  <div className="min-h-screen bg-stone-900 pt-24 px-4">
-    <div className="max-w-7xl mx-auto">
-      <h1 className="text-4xl font-serif text-gold-400 mb-8">Meditation</h1>
-      <p className="text-stone-200">
-        This page will contain meditation resources. Coming soon!
-      </p>
-    </div>
-  </div>
-);
 
 // Simple Profile Component
 const Profile = () => (

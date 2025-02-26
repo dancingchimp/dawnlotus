@@ -1,3 +1,4 @@
+// src/components/sections/PracticeOverview.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -24,19 +25,19 @@ const practices = [
 
 function PracticeOverview() {
   return (
-    <div className="grid md:grid-cols-3 gap-8">
+    <div className="grid md:grid-cols-3 gap-8 home-practices-grid">
       {practices.map((practice, index) => (
         <Link
           key={index}
           to={practice.link}
-          className="bg-stone-800/30 p-8 rounded-xl border border-jade-500/10 
-                   hover:border-jade-500/30 transition-all duration-300"
+          className="bg-stone-800/30 rounded-xl border border-jade-500/10 
+                   hover:border-jade-500/30 transition-all duration-300 practice-path-card"
         >
-          <div className="mb-4">
-            <h3 className="text-xl font-serif text-gold-500">{practice.title}</h3>
-            <p className="text-stone-400 font-chinese">{practice.chinese}</p>
+          <div className="study-title">
+            <h3 className="practice-path-title">{practice.title}</h3>
+            <p className="practice-path-chinese">{practice.chinese}</p>
           </div>
-          <p className="text-stone-300">{practice.description}</p>
+          <p className="practice-path-description">{practice.description}</p>
         </Link>
       ))}
     </div>
