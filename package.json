@@ -21,7 +21,6 @@
     "react-router-dom": "^6.15.0",
     "recharts": "^2.10.3",
     "tailwind-merge": "^2.2.0",
-    "vite": "^x.x.x" ,
     "web-vitals": "^3.4.0"
   },
   "devDependencies": {
@@ -29,9 +28,9 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
+    "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.17",
     "babel-plugin-transform-imports": "^2.0.0",
-    "compression-webpack-plugin": "^10.0.0",
     "customize-cra": "^1.0.0",
     "eslint": "^8.47.0",
     "eslint-config-react-app": "^7.0.1",
@@ -39,33 +38,19 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "postcss": "^8.4.35",
     "prettier": "^3.0.2",
-    "react-app-rewired": "^2.2.1",
     "source-map-explorer": "^2.5.3",
-    "tailwindcss": "^3.4.1"
+    "tailwindcss": "^3.4.1",
+    "vite": "^5.0.10"
   },
   "scripts": {
-    "start": "react-app-rewired start",
+    "dev": "vite",
     "build": "vite build",
-    "netlify-build": "npm install && vite build" ,
-    "test": "react-app-rewired test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "analyze": "source-map-explorer 'build/static/js/*.js'",
+    "preview": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src --ext .js,.jsx",
     "lint:fix": "eslint src --ext .js,.jsx --fix",
     "format": "prettier --write \"src/**/*.{js,jsx,css,md}\"",
-    "clean": "rm -rf build node_modules/.cache"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ],
-    "rules": {
-      "react/prop-types": "warn",
-      "no-unused-vars": "warn"
-    }
+    "analyze": "source-map-explorer 'dist/assets/*.js'"
   },
   "browserslist": {
     "production": [

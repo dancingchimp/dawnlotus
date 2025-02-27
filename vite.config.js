@@ -16,5 +16,15 @@ export default defineConfig({
     assetsDir: 'assets',
     emptyOutDir: true,
     sourcemap: true,
+    // Optimize chunk size
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ['react', 'react-dom', 'react-router-dom'],
+          ui: ['lucide-react', 'recharts'],
+          utils: ['lodash', 'papaparse']
+        }
+      }
+    }
   },
 })

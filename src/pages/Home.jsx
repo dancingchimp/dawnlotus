@@ -1,5 +1,4 @@
 // src/pages/Home.jsx
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
@@ -122,7 +121,7 @@ function Home() {
               <ul className="space-y-2 text-stone-400">
                 <li className="flex items-start gap-2">
                   <span className="text-jade-500 mt-1">•</span>
-                  <span>Developing the three dantians</span>
+                  <span>Developing the three energy fields</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-jade-500 mt-1">•</span>

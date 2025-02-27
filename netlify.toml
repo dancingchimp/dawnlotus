@@ -2,11 +2,8 @@
 # This file tells Netlify how to build and deploy your site
 
 [build]
-  # Directory to publish (relative to root of your repo)
-  command = "npm run netlify-build"
+  # Directory to publish and build command
   publish = "dist"
-  
-  # Default build command
   command = "npm run build"
 
 [build.environment]
