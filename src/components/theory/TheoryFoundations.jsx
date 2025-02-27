@@ -1,14 +1,17 @@
 // src/components/theory/TheoryFoundations.jsx
 
 import React, { useState } from 'react';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import { Flame, Water, Circle, Sun, Moon, Star } from 'lucide-react';
+import { Card, CardHeader, CardTitle, CardContent } from '../ui/card';
 
 const theoreticalConcepts = {
   fundamentals: {
     title: "Core Principles",
     chinese: "核心原理",
-    icon: Star,
+    icon: (props) => (
+      <svg xmlns="http://www.w3.org/2000/svg" className={props.className || "h-6 w-6"} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+      </svg>
+    ),
     concepts: [
       {
         name: "Yin-Yang Theory",
@@ -48,7 +51,11 @@ const theoreticalConcepts = {
   energetics: {
     title: "Energy Systems",
     chinese: "能量系統",
-    icon: Flame,
+    icon: (props) => (
+      <svg xmlns="http://www.w3.org/2000/svg" className={props.className || "h-6 w-6"} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+      </svg>
+    ),
     concepts: [
       {
         name: "Three Dantians",
@@ -88,7 +95,11 @@ const theoreticalConcepts = {
   practice: {
     title: "Practice Principles",
     chinese: "修練原則",
-    icon: Water,
+    icon: (props) => (
+      <svg xmlns="http://www.w3.org/2000/svg" className={props.className || "h-6 w-6"} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+      </svg>
+    ),
     concepts: [
       {
         name: "Three Alignments",
@@ -161,7 +172,7 @@ function TheoryFoundations() {
                     <Icon className="w-6 h-6 text-jade-500" />
                   </div>
                   <div>
-                    <CardTitle className="text-gold-500">{category.title}</CardTitle>
+                    <CardTitle>{category.title}</CardTitle>
                     <p className="text-stone-400 font-chinese text-sm">{category.chinese}</p>
                   </div>
                 </div>
@@ -178,7 +189,7 @@ function TheoryFoundations() {
                                    transition-all duration-300">
             <CardHeader>
               <div className="mb-2">
-                <CardTitle className="text-gold-500">{concept.name}</CardTitle>
+                <CardTitle>{concept.name}</CardTitle>
                 <p className="text-stone-400 font-chinese text-sm">{concept.chinese}</p>
               </div>
               <p className="text-stone-300 text-sm">{concept.description}</p>
@@ -187,7 +198,7 @@ function TheoryFoundations() {
               <ul className="space-y-2">
                 {concept.key_points.map((point, i) => (
                   <li key={i} className="flex items-center gap-2 text-stone-400">
-                    <Circle className="w-1.5 h-1.5 text-jade-500" />
+                    <span className="text-jade-500 text-xs">•</span>
                     <span>{point}</span>
                   </li>
                 ))}

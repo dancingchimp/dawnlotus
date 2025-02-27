@@ -1,14 +1,17 @@
 // src/components/education/DaoistEducationHub.jsx
 
 import React, { useState } from 'react';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import { Book, Battery, Wind, Heart, Users, Circle } from 'lucide-react';
+import { Card, CardHeader, CardTitle, CardContent } from '../ui/card';
 
 const educationalPaths = {
   overview: {
     title: "Program Overview",
     chinese: "課程概述",
-    icon: Book,
+    icon: (props) => (
+      <svg xmlns="http://www.w3.org/2000/svg" className={props.className || "h-6 w-6"} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253" />
+      </svg>
+    ),
     sections: [
       {
         name: "Our Approach",
@@ -35,7 +38,11 @@ const educationalPaths = {
   foundations: {
     title: "Theoretical Foundations",
     chinese: "理論基礎",
-    icon: Book,
+    icon: (props) => (
+      <svg xmlns="http://www.w3.org/2000/svg" className={props.className || "h-6 w-6"} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253" />
+      </svg>
+    ),
     sections: [
       {
         name: "Core Concepts",
@@ -62,7 +69,11 @@ const educationalPaths = {
   practices: {
     title: "Practice Paths",
     chinese: "修練途徑",
-    icon: Heart,
+    icon: (props) => (
+      <svg xmlns="http://www.w3.org/2000/svg" className={props.className || "h-6 w-6"} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+      </svg>
+    ),
     paths: [
       {
         name: "Daoist Yoga",
@@ -99,7 +110,11 @@ const educationalPaths = {
   community: {
     title: "Learning Community",
     chinese: "學習社群",
-    icon: Users,
+    icon: (props) => (
+      <svg xmlns="http://www.w3.org/2000/svg" className={props.className || "h-6 w-6"} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+      </svg>
+    ),
     features: [
       {
         name: "Study Groups",
@@ -149,7 +164,7 @@ const ContentSection = ({ section }) => {
                 <ul className="space-y-2">
                   {s.topics.map((topic, i) => (
                     <li key={i} className="flex items-center gap-2 text-stone-300">
-                      <Circle className="w-2 h-2 text-jade-500" />
+                      <span className="text-jade-500 text-xs">•</span>
                       {topic}
                     </li>
                   ))}
@@ -173,7 +188,7 @@ const ContentSection = ({ section }) => {
               <div className="space-y-2">
                 {path.levels.map((level, i) => (
                   <div key={i} className="flex items-center gap-2 text-stone-300">
-                    <Circle className="w-2 h-2 text-jade-500" />
+                    <span className="text-jade-500 text-xs">•</span>
                     {level}
                   </div>
                 ))}

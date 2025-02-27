@@ -1,6 +1,6 @@
 // src/components/curriculum/DaoistYogaSystem.jsx
 import React, { useState } from 'react';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { Card, CardHeader, CardTitle, CardContent } from '../ui/card';
 import { Wind, Heart, Star, Circle } from 'lucide-react';
 
 const DaoistYogaSystem = () => {
@@ -10,6 +10,7 @@ const DaoistYogaSystem = () => {
     principles: {
       title: "Core Integration Principles",
       chinese: "核心整合原理",
+      icon: Wind,
       sections: [
         {
           title: "Foundation Principles",
@@ -48,6 +49,7 @@ const DaoistYogaSystem = () => {
     theory: {
       title: "Theoretical Framework",
       chinese: "理論框架",
+      icon: Star,
       sections: [
         {
           title: "Energy Principles",
@@ -86,6 +88,7 @@ const DaoistYogaSystem = () => {
     methodology: {
       title: "Teaching Methodology",
       chinese: "教學方法",
+      icon: Heart,
       sections: [
         {
           title: "Pedagogical Approach",
@@ -140,24 +143,32 @@ const DaoistYogaSystem = () => {
 
         {/* Navigation */}
         <div className="grid md:grid-cols-3 gap-6 mb-12">
-          {Object.entries(framework).map(([key, section]) => (
-            <Card
-              key={key}
-              className={`cursor-pointer transition-all duration-300 ${
-                activeSection === key 
-                  ? 'bg-stone-800/70 border-jade-500' 
-                  : 'bg-stone-800/30 hover:bg-stone-800/50'
-              }`}
-              onClick={() => setActiveSection(key)}
-            >
-              <CardHeader>
-                <div>
-                  <CardTitle className="text-gold-500">{section.title}</CardTitle>
-                  <p className="text-stone-400 font-chinese">{section.chinese}</p>
-                </div>
-              </CardHeader>
-            </Card>
-          ))}
+          {Object.entries(framework).map(([key, section]) => {
+            const Icon = section.icon;
+            return (
+              <Card
+                key={key}
+                className={`cursor-pointer transition-all duration-300 ${
+                  activeSection === key 
+                    ? 'bg-stone-800/70 border-jade-500' 
+                    : 'bg-stone-800/30 hover:bg-stone-800/50'
+                }`}
+                onClick={() => setActiveSection(key)}
+              >
+                <CardHeader>
+                  <div className="flex items-center gap-4">
+                    <div className="p-3 bg-jade-500/10 rounded-xl">
+                      <Icon className="w-6 h-6 text-jade-500" />
+                    </div>
+                    <div>
+                      <CardTitle>{section.title}</CardTitle>
+                      <p className="text-stone-400 font-chinese">{section.chinese}</p>
+                    </div>
+                  </div>
+                </CardHeader>
+              </Card>
+            );
+          })}
         </div>
 
         {/* Content */}
@@ -173,7 +184,7 @@ const DaoistYogaSystem = () => {
                              transition-all duration-300"
                   >
                     <CardHeader>
-                      <CardTitle className="text-gold-500">{aspect.name}</CardTitle>
+                      <CardTitle>{aspect.name}</CardTitle>
                       <p className="text-stone-300">{aspect.description}</p>
                     </CardHeader>
                     <CardContent>

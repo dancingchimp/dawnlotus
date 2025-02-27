@@ -1,8 +1,7 @@
 // src/components/theory/ThreeFields.jsx
 
 import React from 'react';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import { Battery, Flame, Zap } from 'lucide-react';
+import { Card, CardHeader, CardTitle, CardContent } from '../ui/card';
 
 function ThreeFields() {
   return (
@@ -19,15 +18,16 @@ function ThreeFields() {
       {/* Content */}
       <div className="grid md:grid-cols-3 gap-6">
         {/* Lower Field */}
-        <Card className="bg-stone-800/30 border-jade-500/10 hover:border-jade-500/30 
-                        transition-all duration-300">
+        <Card>
           <CardHeader>
             <div className="flex items-center gap-3 mb-2">
               <div className="p-2 bg-jade-500/10 rounded-lg">
-                <Battery className="w-5 h-5 text-jade-500" />
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-jade-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h8m-8 6h16" />
+                </svg>
               </div>
               <div>
-                <CardTitle className="text-gold-500">Lower Field</CardTitle>
+                <CardTitle>Lower Field</CardTitle>
                 <p className="text-stone-400 font-chinese text-sm">下田</p>
               </div>
             </div>
@@ -60,15 +60,16 @@ function ThreeFields() {
         </Card>
 
         {/* Middle Field */}
-        <Card className="bg-stone-800/30 border-jade-500/10 hover:border-jade-500/30 
-                        transition-all duration-300">
+        <Card>
           <CardHeader>
             <div className="flex items-center gap-3 mb-2">
               <div className="p-2 bg-jade-500/10 rounded-lg">
-                <Flame className="w-5 h-5 text-jade-500" />
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-jade-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
               </div>
               <div>
-                <CardTitle className="text-gold-500">Middle Field</CardTitle>
+                <CardTitle>Middle Field</CardTitle>
                 <p className="text-stone-400 font-chinese text-sm">中田</p>
               </div>
             </div>
@@ -101,15 +102,16 @@ function ThreeFields() {
         </Card>
 
         {/* Upper Field */}
-        <Card className="bg-stone-800/30 border-jade-500/10 hover:border-jade-500/30 
-                        transition-all duration-300">
+        <Card>
           <CardHeader>
             <div className="flex items-center gap-3 mb-2">
               <div className="p-2 bg-jade-500/10 rounded-lg">
-                <Zap className="w-5 h-5 text-jade-500" />
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-jade-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
               </div>
               <div>
-                <CardTitle className="text-gold-500">Upper Field</CardTitle>
+                <CardTitle>Upper Field</CardTitle>
                 <p className="text-stone-400 font-chinese text-sm">上田</p>
               </div>
             </div>

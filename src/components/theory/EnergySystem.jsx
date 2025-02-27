@@ -1,7 +1,6 @@
 // src/components/theory/EnergySystem.jsx
 import React from 'react';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import { Zap, GitBranch, Circle } from 'lucide-react';
+import { Card, CardHeader, CardTitle, CardContent } from '../ui/card';
 
 function EnergySystem() {
   return (
@@ -21,7 +20,9 @@ function EnergySystem() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <div className="p-2 bg-jade-500/10 rounded-lg">
-                <GitBranch className="w-6 h-6 text-jade-500" />
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-jade-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+                </svg>
               </div>
               <h3 className="text-xl font-serif text-gold-500">Meridian Pathways</h3>
             </div>
@@ -36,21 +37,21 @@ function EnergySystem() {
             
             <ul className="space-y-2">
               <li className="flex items-start gap-2 text-stone-300">
-                <Circle className="w-2 h-2 text-jade-500 mt-2" />
+                <span className="text-jade-500 mt-2">•</span>
                 <div>
                   <span className="text-jade-400">12 Primary Meridians</span>
                   <p className="text-sm">Corresponding to the five yin and yang organs, plus the pericardium and triple warmer</p>
                 </div>
               </li>
               <li className="flex items-start gap-2 text-stone-300">
-                <Circle className="w-2 h-2 text-jade-500 mt-2" />
+                <span className="text-jade-500 mt-2">•</span>
                 <div>
                   <span className="text-jade-400">8 Extraordinary Vessels</span>
                   <p className="text-sm">Including the governing and conception vessels that form the microcosmic orbit</p>
                 </div>
               </li>
               <li className="flex items-start gap-2 text-stone-300">
-                <Circle className="w-2 h-2 text-jade-500 mt-2" />
+                <span className="text-jade-500 mt-2">•</span>
                 <div>
                   <span className="text-jade-400">Connecting Channels</span>
                   <p className="text-sm">Secondary pathways that link the primary meridians</p>
@@ -62,7 +63,9 @@ function EnergySystem() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <div className="p-2 bg-jade-500/10 rounded-lg">
-                <Zap className="w-6 h-6 text-jade-500" />
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-jade-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
               </div>
               <h3 className="text-xl font-serif text-gold-500">Application in Practice</h3>
             </div>
@@ -73,28 +76,28 @@ function EnergySystem() {
             
             <ul className="space-y-2">
               <li className="flex items-start gap-2 text-stone-300">
-                <Circle className="w-2 h-2 text-jade-500 mt-2" />
+                <span className="text-jade-500 mt-2">•</span>
                 <div>
                   <span className="text-jade-400">Clear Blockages</span>
                   <p className="text-sm">Release stagnation that may be causing physical or emotional issues</p>
                 </div>
               </li>
               <li className="flex items-start gap-2 text-stone-300">
-                <Circle className="w-2 h-2 text-jade-500 mt-2" />
+                <span className="text-jade-500 mt-2">•</span>
                 <div>
                   <span className="text-jade-400">Stimulate Flow</span>
                   <p className="text-sm">Increase energy circulation to specific areas or organs</p>
                 </div>
               </li>
               <li className="flex items-start gap-2 text-stone-300">
-                <Circle className="w-2 h-2 text-jade-500 mt-2" />
+                <span className="text-jade-500 mt-2">•</span>
                 <div>
                   <span className="text-jade-400">Balance the System</span>
                   <p className="text-sm">Harmonize the flow between complementary meridians</p>
                 </div>
               </li>
               <li className="flex items-start gap-2 text-stone-300">
-                <Circle className="w-2 h-2 text-jade-500 mt-2" />
+                <span className="text-jade-500 mt-2">•</span>
                 <div>
                   <span className="text-jade-400">Connect Energy Centers</span>
                   <p className="text-sm">Establish pathways between the three fields for more integrated energy work</p>
