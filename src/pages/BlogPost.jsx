@@ -202,7 +202,7 @@ const blogPosts = [
     slug: 'meridian-theory-yoga',
     title: 'Meridian Theory in Daoist Yoga',
     chinese: '道瑜伽中的經絡理論',
-    excerpt: 'How traditional Chinese medicine's understanding of energy pathways informs and enhances yoga practice.',
+    excerpt: 'How traditional Chinese medicine\'s understanding of energy pathways informs and enhances yoga practice.',
     date: '2024-08-30',
     readTime: '12 min',
     coverImage: '/api/placeholder/800/450',
