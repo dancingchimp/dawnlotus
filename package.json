@@ -21,6 +21,7 @@
     "react-router-dom": "^6.15.0",
     "recharts": "^2.10.3",
     "tailwind-merge": "^2.2.0",
+    "vite": "^x.x.x" ,
     "web-vitals": "^3.4.0"
   },
   "devDependencies": {
@@ -45,6 +46,7 @@
   "scripts": {
     "start": "react-app-rewired start",
     "build": "vite build",
+    "netlify-build": "npm install && vite build" ,
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
