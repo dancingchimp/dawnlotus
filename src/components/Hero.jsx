@@ -31,8 +31,8 @@ function Hero() {
             </h1>
 
             <p className="mt-8 text-xl lg:text-2xl text-stone-300 leading-relaxed font-serif">
-              Discover the ancient wisdom of Daoist yoga, where movement meets meditation, 
-              and practice transforms into enlightenment.
+              Where ancient Daoist wisdom merges with modern yoga practice, creating a unified path 
+              to physical vitality, energy mastery, and spiritual awakening.
             </p>
 
             <div className="mt-12 flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">
@@ -45,7 +45,7 @@ function Hero() {
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-jade-600/0 via-stone-100/20 to-jade-600/0 
                               translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-                Begin Your Journey
+                Begin Your Practice
               </Link>
               
               <Link 
@@ -55,7 +55,7 @@ function Hero() {
                          hover:bg-gold-500/10 hover:border-gold-500/50
                          flex items-center justify-center gap-2"
               >
-                Learn More
+                Our Approach
               </Link>
             </div>
 
@@ -63,8 +63,8 @@ function Hero() {
             <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 gap-4 lg:gap-6">
               <div className="bg-stone-800/30 rounded-lg p-3 flex items-center gap-2 group 
                             hover:bg-stone-800/50 transition-all border border-jade-500/10 hover:border-jade-500/30">
-                <span className="text-gold-500 group-hover:scale-110 transition-transform">太極</span>
-                <span className="text-stone-300">Taiji Practice</span>
+                <span className="text-gold-500 group-hover:scale-110 transition-transform">道瑜伽</span>
+                <span className="text-stone-300">Daoist Yoga</span>
               </div>
               <div className="bg-stone-800/30 rounded-lg p-3 flex items-center gap-2 group 
                             hover:bg-stone-800/50 transition-all border border-jade-500/10 hover:border-jade-500/30">
@@ -79,10 +79,10 @@ function Hero() {
             </div>
           </div>
 
-          {/* Right side - Decorative element */}
+          {/* Right side - Taiji symbol */}
           <div className="hidden lg:flex items-center justify-center">
             <div className="relative w-96 h-96">
-              {/* Animated Taiji (Yin-Yang) symbol */}
+              {/* Animated Taiji (Yin-Yang) symbol with energy fields */}
               <div className="absolute inset-0 bg-gradient-to-br from-jade-500/20 to-transparent 
                             rounded-full blur-2xl transform -rotate-12 animate-pulse-slow" />
               <div className="absolute inset-10 bg-gradient-to-tr from-gold-500/10 to-transparent 

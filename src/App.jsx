@@ -14,11 +14,13 @@ const Practice = React.lazy(() => import('./pages/Practice'));
 const Theory = React.lazy(() => import('./pages/Theory'));
 const Meditation = React.lazy(() => import('./pages/Meditation'));
 const About = React.lazy(() => import('./pages/About'));
+const EnergyCultivation = React.lazy(() => import('./pages/theory/EnergyCultivation'));
 
 function App() {
   return (
     <AppProvider>
-      <Router basename="/harmonygate">
+      {/* Remove the basename prop or set it to "/" for the root domain deployment */}
+      <Router>
         <Suspense fallback={<LoadingScreen />}>
           <Layout>
             <Routes>
@@ -27,6 +29,7 @@ function App() {
               <Route path="/theory" element={<Theory />} errorElement={<ErrorBoundary />} />
               <Route path="/meditation" element={<Meditation />} errorElement={<ErrorBoundary />} />
               <Route path="/about" element={<About />} errorElement={<ErrorBoundary />} />
+              <Route path="/energy-cultivation" element={<EnergyCultivation />} errorElement={<ErrorBoundary />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Layout>
