@@ -19,6 +19,7 @@ const EnergyCultivation = React.lazy(() => import('./pages/theory/EnergyCultivat
 // Blog section
 const Blog = React.lazy(() => import('./pages/Blog'));
 const BlogPost = React.lazy(() => import('./pages/BlogPost'));
+const NewBlogPost = React.lazy(() => import('./pages/NewBlogPost'));
 
 // Practice section
 const Practice = React.lazy(() => import('./pages/Practice'));
@@ -59,6 +60,10 @@ function App() {
                 <Route path="/theory" element={<Theory />} errorElement={<ErrorBoundary />} />
                 <Route path="/energy-cultivation" element={<EnergyCultivation />} errorElement={<ErrorBoundary />} />
                 
+ />} />
+                <Route path="/blog/:slug" element={<BlogPost />} errorElement={<ErrorBoundary />} />
+                <Route path="/blog/new" element={<NewBlogPost />} errorElement={<ErrorBoundary />} />
+                
                 {/* Practice Routes */}
                 <Route path="/practice" element={<Practice />} errorElement={<ErrorBoundary />} />
                 <Route path="/practice/:practiceId" element={<PracticeDetail />} errorElement={<ErrorBoundary />} />
@@ -72,10 +77,6 @@ function App() {
                 <Route path="/tai-chi/practice" element={<TaiChiPractice />} errorElement={<ErrorBoundary />} />
                 <Route path="/meditation" element={<Meditation />} errorElement={<ErrorBoundary />} />
                 <Route path="/meditation/practice" element={<MeditationPractice />} errorElement={<ErrorBoundary />} />
-                
-                {/* Blog Routes */}
-                <Route path="/blog" element={<Blog />} errorElement={<ErrorBoundary />} />
-                <Route path="/blog/:slug" element={<BlogPost />} errorElement={<ErrorBoundary />} />
                 
                 {/* User Profile Routes */}
                 <Route path="/profile" element={<Profile />} errorElement={<ErrorBoundary />} />

@@ -17,14 +17,23 @@ const footerLinks = [
     links: [
       { label: 'Principles', path: '/theory/principles' },
       { label: 'Philosophy', path: '/theory/philosophy' },
-      { label: 'History', path: '/theory/history' },
+      { label: 'Energy Cultivation', path: '/energy-cultivation' },
+    ],
+  },
+  {
+    title: '智慧 Wisdom',
+    links: [
+      { label: 'All Articles', path: '/blog' },
+      { label: 'Energy Insights', path: '/blog?category=Energy+Cultivation' },
+      { label: 'Philosophy', path: '/blog?category=Philosophy' },
+      { label: 'Practical Tips', path: '/blog?category=Daily+Practice' },
     ],
   },
   {
     title: '資源 Resources',
     links: [
       { label: 'Schedule', path: '/schedule' },
-      { label: 'Articles', path: '/articles' },
+      { label: 'About Us', path: '/about' },
       { label: 'FAQ', path: '/faq' },
     ],
   },
@@ -35,7 +44,7 @@ function Footer() {
     <footer className="bg-stone-900 border-t border-jade-500/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Brand Section */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">

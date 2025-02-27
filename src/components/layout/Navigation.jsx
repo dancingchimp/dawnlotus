@@ -6,6 +6,7 @@ import { Link, useLocation } from 'react-router-dom';
 const navItems = [
   { path: '/practice', label: '修練', english: 'Practice' },
   { path: '/theory', label: '理論', english: 'Theory' },
+  { path: '/blog', label: '智慧', english: 'Wisdom' },
   { path: '/meditation', label: '靜坐', english: 'Meditation' },
   { path: '/about', label: '關於', english: 'About' },
 ];
