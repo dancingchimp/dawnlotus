@@ -7,7 +7,7 @@ const practices = [
   {
     title: 'Daoist Yoga',
     chinese: '道瑜伽',
-    description: 'Integration of traditional Daoist energy principles with physical postures for complete transformation.',
+    description: 'Integration of traditional Daoist energy principles with physical postures for complete transformation of the physical and energetic.',
     path: '/practice',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -18,7 +18,7 @@ const practices = [
   {
     title: 'Qigong',
     chinese: '氣功',
-    description: 'Ancient energy cultivation practices for vitality, health, and spiritual development.',
+    description: 'The skill of working with Qi for health and vitality until one has achieved complete mastery.',
     path: '/meditation',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -29,7 +29,7 @@ const practices = [
   {
     title: 'Meditation',
     chinese: '靜坐',
-    description: 'Still and moving meditations that develop awareness, clarity, and spiritual connection.',
+    description: 'Stillness within stillness(seated) to develop awareness, clarity, insight, discernment, and spiritual connection.',
     path: '/meditation',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
