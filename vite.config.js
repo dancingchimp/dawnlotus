@@ -27,4 +27,8 @@ export default defineConfig({
       }
     }
   },
+  css: {
+    // Ensure CSS preprocessing happens
+    postcss: './postcss.config.js', // Point to your PostCSS config
+  }
 })

@@ -4,9 +4,41 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <title>Harmony Gate - Daoist Yoga & Spiritual Practice</title>
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Load the fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN as fallback -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              jade: {
+                500: '#0F4C3A',
+              },
+              gold: {
+                500: '#DAA520',
+              },
+              stone: {
+                900: '#1A1A1A',
+                100: '#F5F5F5',
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              serif: ['Noto Serif', 'serif'],
+              chinese: ['Noto Sans SC', 'sans-serif'],
+            },
+          }
+        }
+      }
+    </script>
   </head>
-  <body>
+  <body class="bg-stone-900 text-stone-100">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
