@@ -13,25 +13,25 @@ const teachings = [
     chinese: '氣',
     pinyin: 'Qì',
     english: 'Vital Energy',
-    description: 'Cultivating and directing life force through practice and awareness.'
+    description: 'Cultivating and directing vital energy through practice and awareness for the good of the microcosm and macrocosm.'
   },
   {
     chinese: '道',
     pinyin: 'Dào',
     english: 'The Way',
-    description: 'Following the natural path of harmony and spiritual development.'
+    description: 'Following the path of harmony and spiritual development towards embodiment of the divine.'
   },
   {
     chinese: '德',
     pinyin: 'Dé',
     english: 'Virtue',
-    description: 'Cultivating inner power through authentic practice and wisdom.'
+    description: 'Fusing heaven and earth to create good ripple effects by wielding darkness as the light.'
   },
   {
     chinese: '無為',
     pinyin: 'Wú Wéi',
-    english: 'Non-Action',
-    description: 'Acting in alignment with the natural flow of the universe.'
+    english: 'Non-Governance',
+    description: 'Acting within the constraints of divine law to spread good ripple effects.'
   },
   {
     chinese: '調息',
