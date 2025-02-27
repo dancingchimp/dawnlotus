@@ -83,8 +83,9 @@ function DaoistYogaConcept() {
         
         <div className="mt-16 text-center">
           <Link 
-            to="/practice/daoist-yoga"
-            className="btn-jade px-8 py-4 text-lg font-semibold inline-flex items-center gap-2"
+            to="/practice"
+            className="inline-flex items-center gap-2 bg-jade-500 hover:bg-jade-600 text-stone-100 
+                     px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300"
           >
             <span>Explore Daoist Yoga Practices</span>
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">

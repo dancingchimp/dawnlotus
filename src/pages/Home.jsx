@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
 import PracticeOverview from '../components/sections/PracticeOverview';
 import DaoistYogaConcept from '../components/sections/DaoistYogaConcept';
-import TeachingsSection from '../components/TeachingsSection';
-import PhilosophySection from '../components/PhilosophySection';
+import TeachingsSection from '../components/sections/TeachingsSection';
+import PhilosophySection from '../components/sections/PhilosophySection';
 
 function Home() {
   return (
