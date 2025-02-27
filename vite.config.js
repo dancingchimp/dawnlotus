@@ -16,6 +16,8 @@ export default defineConfig({
     assetsDir: 'assets',
     emptyOutDir: true,
     sourcemap: true,
+    // Ensure the favicon is copied to the dist directory during build
+    assetsInclude: ['**/*.svg'],
     // Optimize chunk size
     rollupOptions: {
       output: {
@@ -30,5 +32,7 @@ export default defineConfig({
   css: {
     // Ensure CSS preprocessing happens
     postcss: './postcss.config.js', // Point to your PostCSS config
-  }
+  },
+  // Ensure static assets from public folder are served properly
+  publicDir: 'public'
 })

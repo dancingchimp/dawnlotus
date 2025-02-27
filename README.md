@@ -1,110 +1,142 @@
-# Harmony Gate (和門 Hé Mén)
+# Harmony Gate (和門) - Daoist Yoga & Spiritual Practice Platform
 
-A Daoist yoga and spiritual practice platform built with React and deployed on GitHub Pages.
-
-## Live Site
-Visit the site at [https://harmonygate.github.io/](https://harmonygate.github.io/)
-
-## Project Overview
-
-Harmony Gate is a comprehensive platform for Daoist yoga practice, meditation, and spiritual development. Our approach integrates traditional Daoist principles with modern wellness practices, creating a balanced path for personal transformation.
-
-### Core Offerings
-- Daoist Yoga Classes
-- Meditation Practices
-- Qi Gong Training
-- Traditional Theory Studies
-- Energy Work Workshops
-- Spiritual Development
-
-## Project Setup
-
-### Prerequisites
-- Node.js 14+ and npm 6+
-- Git
-
-### Installation
-1. Clone the repository:
-```bash
-git clone https://github.com/harmonygate/harmonygate.git
-cd harmonygate
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Start the development server:
-```bash
-npm start
-```
+A modern web application for Daoist yoga practice, energy cultivation, and spiritual development. This platform integrates traditional Eastern energy arts with Western yoga practices for a comprehensive approach to personal transformation.
 
 ## Project Structure
 
+The Harmony Gate platform is organized as follows:
+
+### Core Sections
+
+- **Study** - Educational content and theory about different practices
+  - Daoist Yoga - Our integrated approach to energy cultivation through physical postures
+  - QiGong - Traditional energy cultivation practices
+  - TaijiGong - Flowing meditation through spiral movements
+  - Meditation - Still meditation practices
+  - Wisdom - Teachings from Sovereign Harmony (the founder)
+
+- **Practice** - Interactive practice sessions and progress tracking
+  - Practice Dashboard - Personalized practice recommendations
+  - Practice Sessions - Guided practice experiences
+  - Quick Practice - Short sessions for limited time availability
+
+- **Theory** - In-depth theoretical foundations
+  - Energy Cultivation - Understanding energy development stages
+  - Philosophy - Core Daoist principles and wisdom
+
+- **Profile** - User account and progress management
+  - Progress Tracking - Visual journey through cultivation phases
+  - Achievements - Recognition for practice milestones
+  - Settings - Account preferences and notifications
+
+### Technical Organization
+
 ```
-harmonygate/                      # Repository root
-├── public/                       # Public assets
-│   ├── styles/                   # CSS files for production
-│   └── favicon/                  # Favicon files
-└── src/                          # Source code
-    ├── components/               # React components
-    │   ├── practice/            # Practice-related components
-    │   ├── theory/             # Theory-related components
-    │   └── meditation/         # Meditation components
-    ├── context/                 # React context
-    ├── hooks/                   # Custom React hooks
-    └── utils/                   # Utility functions
+harmony-gate/
+├── public/                       # Static assets
+│   ├── favicon.svg              # Site favicon
+│   └── site.webmanifest         # PWA configuration
+│
+├── src/                          # Source code
+│   ├── components/               # Reusable UI components
+│   │   ├── common/               # Shared components
+│   │   │   ├── ErrorBoundary.jsx # Error handling
+│   │   │   └── LoadingScreen.jsx # Loading state
+│   │   ├── layout/               # Layout components
+│   │   │   ├── Footer.jsx        # Site footer
+│   │   │   └── Navbar.jsx        # Navigation bar
+│   │   ├── practice/             # Practice components
+│   │   │   ├── PracticeSession.jsx      # Guided practice experience
+│   │   │   └── RecommendedPractice.jsx  # Practice recommendations
+│   │   ├── profile/              # User profile components
+│   │   │   └── PracticeProgress.jsx     # Progress tracking
+│   │   └── sections/             # Page sections
+│   │       ├── CorePrinciples.jsx      # Philosophy principles
+│   │       ├── DaoistYogaConcept.jsx   # Concept explanation
+│   │       ├── FounderSection.jsx      # Sovereign Harmony section
+│   │       ├── HeroSection.jsx         # Homepage hero
+│   │       ├── PhilosophySection.jsx   # Philosophy overview
+│   │       ├── PracticePaths.jsx       # Practice paths overview
+│   │       └── TeachingsSection.jsx    # Teachings overview
+│   │
+│   ├── context/                  # React context providers
+│   │   ├── AppContext.jsx        # Application state
+│   │   └── AuthContext.jsx       # Authentication state
+│   │
+│   ├── pages/                    # Page components
+│   │   ├── practice/             # Practice pages
+│   │   │   ├── PracticeDashboard.jsx    # Practice dashboard
+│   │   │   ├── PracticeSession.jsx      # Practice session page
+│   │   │   └── QuickPractice.jsx        # Quick practice page
+│   │   ├── profile/              # Profile pages
+│   │   │   ├── UserAchievements.jsx     # User achievements
+│   │   │   ├── UserProfile.jsx          # User profile
+│   │   │   └── UserSettings.jsx         # User settings
+│   │   ├── study/                # Study section pages
+│   │   │   ├── DaoistYoga.jsx           # Daoist Yoga overview
+│   │   │   ├── QiGong.jsx               # QiGong overview
+│   │   │   └── TaijiGong.jsx            # TaijiGong overview
+│   │   ├── About.jsx             # About page
+│   │   ├── Blog.jsx              # Wisdom articles listing
+│   │   ├── BlogPost.jsx          # Single wisdom article
+│   │   ├── Home.jsx              # Home page
+│   │   ├── Meditation.jsx        # Meditation overview
+│   │   ├── NotFound.jsx          # 404 page
+│   │   ├── Practice.jsx          # Practice overview
+│   │   └── Theory.jsx            # Theory overview
+│   │
+│   ├── App.jsx                   # Application component with routes
+│   ├── main.jsx                  # Application entry point
+│   └── index.css                 # Global styles
+│
+├── eslint.config.js              # ESLint configuration
+├── package.json                  # Dependencies and scripts
+├── postcss.config.js             # PostCSS configuration
+├── tailwind.config.js            # Tailwind CSS configuration
+└── vite.config.js                # Vite configuration
 ```
 
-## Key Features
-- **Integrated Learning System**: Combines theory and practice
-- **Progressive Development Path**: Structured advancement through practices
-- **Interactive Practice Tools**: Guided sessions and progress tracking
-- **Resource Library**: Comprehensive Daoist teachings
-- **Community Features**: Student forums and study groups
-- **Responsive Design**: Optimized for all devices
+## Getting Started
 
-## Building for Production
+1. Clone the repository
+```
+git clone https://github.com/your-username/harmony-gate.git
+cd harmony-gate
+```
 
-```bash
+2. Install dependencies
+```
+npm install
+```
+
+3. Start the development server
+```
+npm run dev
+```
+
+4. Build for production
+```
 npm run build
 ```
 
-This creates an optimized build in the `build` directory.
+## Key Features
 
-## Development Standards
+- **Integrated Learning System**: Theory and practice are seamlessly integrated
+- **Progressive Development Path**: Users advance through structured cultivation phases
+- **Interactive Practice Tools**: Guided sessions with timers and progress tracking
+- **User Progress Tracking**: Visual journey through the cultivation phases
+- **Achievement System**: Recognition for practice milestones
+- **Responsive Design**: Optimized for all devices
 
-This project follows these standards:
-- ESLint for JavaScript linting
-- Prettier for code formatting
-- React best practices and hooks
-- Semantic HTML
-- Accessible design (WCAG 2.1 AA compliant)
+## Design System
 
-## Available Scripts
+The Harmony Gate platform uses a consistent design system featuring:
 
-- `npm start` - Runs the app in development mode
-- `npm test` - Launches the test runner
-- `npm run build` - Builds the app for production
-- `npm run deploy` - Deploys to GitHub Pages
-- `npm run lint` - Lints JavaScript files
-- `npm run format` - Formats code with Prettier
+- **Colors**: Jade and gold accent colors against a dark stone background
+- **Typography**: Inter for UI, Noto Serif for headings, Noto Sans SC for Chinese text
+- **Components**: Card-based layouts with subtle animations and transitions
+- **Iconography**: Lucide icons throughout the interface
 
-## Contributing
+## Browser Support
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Acknowledgments
-
-- React Router for routing
-- Create React App for the initial setup
-- Traditional Daoist teachings and practices that inspire our work
+This application is optimized for modern browsers and includes comprehensive favicon support for various platforms and devices.
