@@ -1,15 +1,15 @@
 // src/components/philosophy/UniversalPrinciples.jsx
 
 import React from 'react';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import { Sun, Moon, Crown, Path, Heart, Star } from 'lucide-react';
+import { Card, CardHeader, CardTitle, CardContent } from '../ui/card';
+import { Sun, Moon, Crown, Heart, Star, MapPin } from 'lucide-react';
 
 function UniversalPrinciples() {
   const corePrinciples = [
     {
       title: "The Universal Path",
       chinese: "普世之道",
-      icon: Path,
+      icon: MapPin,
       description: "The journey of inner transformation exists beyond any single tradition. Whether called a Daoist, Ascendant, or Mystic, the practitioner walks toward embodying their highest divine nature.",
       points: [
         "Universal principles transcend cultural boundaries",
@@ -118,12 +118,12 @@ function UniversalPrinciples() {
               </div>
             </div>
             
-            <p className="text-stone-300 leading-relaxed mb-4">
+            <p className="text-center text-stone-300 leading-relaxed mb-4">
               Harmony Gate represents this universal gateway - the threshold where opposing forces 
               meet and merge. Our name reflects both the journey and the destination: the 
               achievement of harmony through conscious practice and transformation.
             </p>
-            <p className="text-stone-300 leading-relaxed">
+            <p className="text-center text-stone-300 leading-relaxed">
               Whether you identify as a seeker, mystic, or simply someone drawn to deeper truth, 
               our practices provide a clear path toward realizing your highest potential through 
               the balance and integration of all aspects of your being.
