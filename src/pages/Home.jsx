@@ -1,7 +1,7 @@
 // src/pages/Home.jsx
 import React from 'react';
 import NavBar from '../components/layout/Navbar';
-import HeroSection from '../components/sections/HeroSection';
+import HeroSection from '../components/sections/Herosection';  // Fixed import path
 import CorePrinciples from '../components/sections/CorePrinciples';
 import FounderSection from '../components/sections/FounderSection';
 import PracticePaths from '../components/sections/PracticePaths';

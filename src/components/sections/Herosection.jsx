@@ -1,4 +1,4 @@
-// src/components/sections/HeroSection.jsx
+// src/components/sections/Herosection.jsx
 import React from 'react';
 
 const HeroSection = () => {
