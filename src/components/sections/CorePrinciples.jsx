@@ -30,7 +30,7 @@ const CorePrinciples = () => {
   ];
 
   return (
-    <section className="py-20 px-4 bg-stone-900 relative overflow-hidden">
+    <section className="py-20 px-6 sm:px-10 lg:px-16 xl:px-24 bg-stone-900 relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 bg-gradient-texture opacity-5" />
       <div className="absolute top-0 right-0 w-full h-1/3 bg-gradient-to-b from-stone-800/50 to-transparent" />
@@ -42,7 +42,7 @@ const CorePrinciples = () => {
       <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gold-500/5 rounded-full blur-3xl animate-flow opacity-30" 
            style={{ animationDuration: '15s', animationDelay: '5s', animationDirection: 'reverse' }} />
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="w-full relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16 animate-fadeIn">
           <h2 className="text-xl font-chinese text-gold-500 mb-2">核心原則</h2>

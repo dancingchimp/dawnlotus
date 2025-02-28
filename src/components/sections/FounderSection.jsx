@@ -3,14 +3,14 @@ import React from 'react';
 
 const FounderSection = () => {
   return (
-    <section className="py-20 bg-stone-800 relative overflow-hidden">
+    <section className="py-20 px-6 sm:px-10 lg:px-16 xl:px-24 bg-stone-800 relative overflow-hidden">
       {/* Background texture and decorative elements */}
       <div className="absolute inset-0 bg-gradient-texture opacity-5" />
       <div className="absolute -top-32 -left-32 w-96 h-96 bg-jade-500/5 rounded-full blur-3xl animate-flow opacity-40" />
       <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-gold-500/5 rounded-full blur-3xl animate-flow opacity-40" 
            style={{ animationDelay: '2s', animationDirection: 'reverse' }} />
 
-      <div className="max-w-6xl mx-auto px-4 relative z-10">
+      <div className="w-full relative z-10">
         <div className="bg-stone-900/50 backdrop-blur-md rounded-xl overflow-hidden border border-jade-500/10 
                       shadow-xl transition-all duration-500 hover:border-jade-500/20 hover:shadow-jade-900/20">
           <div className="grid md:grid-cols-2 gap-0">
@@ -20,17 +20,17 @@ const FounderSection = () => {
               {/* Background energy field */}
               <div className="absolute inset-0 bg-gradient-radial from-jade-500/5 to-transparent opacity-70" />
               
-              <div className="relative w-64 h-64 mx-auto">
+              <div className="relative taiji-container">
                 {/* Animated energy circles */}
                 <div className="absolute w-full h-full rounded-full border border-jade-500/10 animate-pulse-slow" 
                      style={{ animationDuration: '4s' }} />
-                <div className="absolute w-5/6 h-5/6 top-1/12 left-1/12 rounded-full border border-gold-500/10 animate-pulse-slow" 
+                <div className="absolute w-5/6 h-5/6 top-[8.33%] left-[8.33%] rounded-full border border-gold-500/10 animate-pulse-slow" 
                      style={{ animationDuration: '6s' }} />
                 <div className="absolute w-2/3 h-2/3 top-1/6 left-1/6 rounded-full border border-jade-500/10 animate-pulse-slow" 
                      style={{ animationDuration: '8s' }} />
                 
                 {/* Main Taiji symbol */}
-                <svg viewBox="0 0 100 100" className="w-full h-full text-jade-500 relative z-10">
+                <svg viewBox="0 0 100 100" className="taiji-symbol relative z-10">
                   {/* Base circle */}
                   <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" strokeWidth="1.5" />
                   
@@ -60,7 +60,7 @@ const FounderSection = () => {
             <div className="p-8 md:p-10 lg:p-12 flex flex-col justify-center">
               <div className="animate-fadeIn">
                 <h2 className="text-xl font-chinese text-gold-500 mb-1">主權和諧</h2>
-                <h3 className="text-3xl font-serif text-stone-100 mb-6">Sovereign Harmony</h3>
+                <h3 className="text-3xl font-serif text-stone-100 mb-6 title-shadow">Sovereign Harmony</h3>
                 <div className="space-y-4 text-stone-300">
                   <p>
                     As the Sovereign Harmony, my role is not to place myself at the center of the teaching, but rather to
@@ -92,7 +92,7 @@ const FounderSection = () => {
                   href="/study/wisdom"
                   className="inline-flex items-center gap-2 bg-jade-500 hover:bg-jade-600 text-stone-100 
                            px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-1
-                           shadow-md shadow-jade-900/20 hover:shadow-lg hover:shadow-jade-900/30"
+                           shadow-md shadow-jade-900/20 hover:shadow-lg hover:shadow-jade-900/30 btn-effect"
                 >
                   Explore Sovereign Harmony Teachings
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">

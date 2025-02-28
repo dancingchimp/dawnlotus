@@ -412,3 +412,174 @@
     display: block;
   }
 }
+
+/* Enhanced container widths */
+.container-full {
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .container-full {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-full {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-full {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+}
+
+/* Enhanced animations */
+@keyframes subtle-pulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+.animate-subtle-pulse {
+  animation: subtle-pulse 4s ease-in-out infinite;
+}
+
+/* Improved focus styles for better accessibility */
+a:focus-visible, 
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #0F4C3A;
+  outline-offset: 2px;
+}
+
+/* Enhanced card hover states */
+.card-transition {
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-transition:hover {
+  transform: translateY(-4px);
+  border-color: rgba(15, 76, 58, 0.4);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Improved text shadows for better readability */
+.title-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Add smooth scrolling to the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced button styles */
+.btn-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: translateX(-100%);
+}
+
+.btn-effect:hover::after {
+  transform: translateX(100%);
+  transition: transform 0.8s ease;
+}
+
+/* Add enhanced container layout */
+.layout-container {
+  width: 100%;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .layout-container {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .layout-container {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .layout-container {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+}
+
+/* Enhanced section spacing */
+.section-spacing {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .section-spacing {
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-spacing {
+    margin-top: 8rem;
+    margin-bottom: 8rem;
+  }
+}
+
+/* Enhance taiji symbol display */
+.taiji-container {
+  position: relative;
+  max-width: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.taiji-symbol {
+  max-width: 450px;
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width: 1280px) {
+  .taiji-symbol {
+    max-width: 550px;
+  }
+}
+
+/* Fix for mobile navigations */
+.mobile-nav-container {
+  max-height: calc(100vh - 64px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}

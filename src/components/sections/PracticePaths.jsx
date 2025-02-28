@@ -42,7 +42,7 @@ const PracticePaths = () => {
   ];
 
   return (
-    <section className="py-20 px-4 bg-stone-800 relative overflow-hidden">
+    <section className="py-20 px-6 sm:px-10 lg:px-16 xl:px-24 bg-stone-800 relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 bg-gradient-texture opacity-5" />
       
@@ -50,7 +50,7 @@ const PracticePaths = () => {
       <div className="absolute top-0 right-1/4 w-px h-40 bg-gradient-to-b from-transparent via-jade-500/30 to-transparent" />
       <div className="absolute bottom-0 left-1/4 w-px h-40 bg-gradient-to-t from-transparent via-gold-500/30 to-transparent" />
       
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="w-full relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16 animate-fadeIn">
           <h2 className="text-xl font-chinese text-gold-500 mb-2">修練之道</h2>

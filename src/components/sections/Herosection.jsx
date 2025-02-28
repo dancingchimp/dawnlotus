@@ -17,24 +17,24 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-texture opacity-10" />
       </div>
 
-      <div className="relative px-4 py-16 w-full max-w-7xl mx-auto">
+      <div className="relative px-6 sm:px-10 lg:px-16 xl:px-24 py-16 w-full">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Main content */}
-          <div className="text-center lg:text-left max-w-lg mx-auto lg:mx-0">
+          <div className="text-center lg:text-left max-w-xl lg:max-w-none mx-auto">
             {/* Chinese Title with subtle animation */}
             <div className="mb-6 font-chinese animate-fadeIn">
-              <h2 className="text-4xl text-gold-500 tracking-wide text-glow">和門</h2>
+              <h2 className="text-4xl md:text-5xl text-gold-500 tracking-wide text-glow">和門</h2>
               <p className="text-stone-400 mt-1">Hé Mén</p>
             </div>
             
             {/* English Title with gradient effect */}
-            <h1 className="text-5xl lg:text-6xl font-serif font-bold tracking-tight mb-6 
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold tracking-tight mb-6 
                          text-transparent bg-clip-text bg-gradient-to-r from-stone-100 via-stone-50 to-stone-100
                          animate-fadeIn" style={{ animationDelay: '0.2s' }}>
               Harmony Gate
             </h1>
 
-            <p className="mt-8 text-xl lg:text-2xl text-stone-300 leading-relaxed font-serif
+            <p className="mt-8 text-xl lg:text-2xl xl:text-3xl text-stone-300 leading-relaxed font-serif
                         animate-fadeIn" style={{ animationDelay: '0.4s' }}>
               Where ancient Daoist wisdom merges with modern yoga practice, creating a unified path 
               to physical vitality, energy mastery, and spiritual awakening.
@@ -99,7 +99,7 @@ const HeroSection = () => {
               {/* Taiji symbol */}
               <div className="absolute inset-0 flex items-center justify-center animate-float" 
                    style={{ animationDuration: '8s' }}>
-                <svg viewBox="0 0 100 100" className="w-64 h-64 drop-shadow-2xl">
+                <svg viewBox="0 0 100 100" className="w-80 h-80 drop-shadow-2xl">
                   {/* Outer glow */}
                   <circle cx="50" cy="50" r="49" fill="none" stroke="rgba(15, 76, 58, 0.3)" strokeWidth="1" />
                   

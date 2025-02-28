@@ -24,7 +24,7 @@ const NavBar = () => {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled ? 'bg-stone-900/80 backdrop-blur-md shadow-lg' : 'bg-transparent'
     }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-full w-full mx-auto px-6 sm:px-10 lg:px-16 xl:px-24">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <a href="/" className="flex items-center space-x-2">
@@ -33,7 +33,7 @@ const NavBar = () => {
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-2">
+          <nav className="hidden md:flex items-center space-x-4">
             {/* Study Dropdown - Gold Button */}
             <div className="relative">
               <button 
