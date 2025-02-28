@@ -79,7 +79,7 @@ const PracticeSession = () => {
         id: 8,
         type: 'stillness',
         title: 'Standing Meditation',
-        description: 'Stand quietly with feet shoulder-width apart, knees slightly bent. Allow your awareness to rest in your lower dantian. Feel the energy circulating through the channels you've opened.',
+        description: "Stand quietly with feet shoulder-width apart, knees slightly bent. Allow your awareness to rest in your lower dantian. Feel the energy circulating through the channels you've opened.",
         duration: 300, // 5 minutes
         hasAudio: true
       },
@@ -87,7 +87,7 @@ const PracticeSession = () => {
         id: 9,
         type: 'closure',
         title: 'Closing Integration',
-        description: 'Rub your palms together until warm. Place them over your lower abdomen. Take three deep breaths, feeling the session's effects integrating throughout your body.',
+        description: 'Rub your palms together until warm. Place them over your lower abdomen. Take three deep breaths, feeling the session\'s effects integrating throughout your body.',
         duration: 60, // 1 minute
         hasAudio: true
       }
